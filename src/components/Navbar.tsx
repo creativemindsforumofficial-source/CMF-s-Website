@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: 'About', href: '/about' },
   { name: 'Creative Archive', href: '/my-pen-speaks' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Meet the Team', href: '/team' },
   { name: 'Newsletter', href: '/newsletter' },
   { name: 'AI Symposium', href: '#' },
   { name: 'Sub-Teams', href: '#' },

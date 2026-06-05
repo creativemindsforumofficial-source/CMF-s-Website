@@ -51,7 +51,7 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center gap-8"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter text-white drop-shadow-2xl leading-[1.05] max-w-5xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white drop-shadow-2xl leading-[1.05] max-w-5xl">
             Your Ideas Will <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-400">Change the World.</span>
             <br />
