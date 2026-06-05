@@ -1,0 +1,6 @@
+{
+  "name": "Creative Minds' Forum",
+  "description": "The digital headquarters for the Creative Minds' Forum (CMF).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

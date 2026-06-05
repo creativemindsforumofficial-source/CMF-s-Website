@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cmf-accent: #d900ff;
+  --color-cmf-black: #050505;
+  --color-cmf-white: #fafafa;
+  --color-cmf-gold: #FFCC00;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-cmf-black);
+    color: var(--color-cmf-white);
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
