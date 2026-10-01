@@ -19,6 +19,7 @@ import Blog from './pages/Blog';
 import Team from './pages/Team';
 import SubTeams from './pages/SubTeams';
 import AISymposium from './pages/AISymposium';
+import Join from './pages/Join';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -47,6 +48,8 @@ export default function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/sub-teams" element={<SubTeams />} />
           <Route path="/ai-symposium" element={<AISymposium />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/community" element={<Join />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

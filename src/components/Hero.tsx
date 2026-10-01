@@ -529,10 +529,10 @@ export default function Hero() {
             className="pt-2 sm:pt-3 w-full flex flex-col items-center gap-2.5"
           >
             <a
-              href="/audacity"
+              href="/join"
               className="group relative inline-flex items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto max-w-xs sm:max-w-none px-6 py-4 sm:px-11 sm:py-5 font-bold text-black transition-all duration-300 bg-[var(--color-cmf-gold)] hover:bg-[#FFE066] rounded-2xl overflow-hidden shadow-[0_12px_35px_rgba(255,204,0,0.35)] hover:shadow-[0_15px_45px_rgba(255,204,0,0.5)] active:scale-95 text-xs sm:text-sm md:text-base tracking-wider uppercase"
             >
-              <span>Join the Movement — Audacity '26</span>
+              <span>Become a part of us</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />

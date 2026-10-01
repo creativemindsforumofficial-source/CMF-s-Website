@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* CTA - Right (Desktop) */}
         <div className="hidden md:flex items-center gap-6 z-50 relative">
           <Link 
-            to="/sub-teams"
+            to="/join"
             className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-black border border-[var(--color-cmf-gold)] text-[var(--color-cmf-gold)] text-sm font-bold tracking-widest uppercase hover:bg-[var(--color-cmf-gold)] hover:text-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_15px_rgba(255,204,0,0.2)] hover:shadow-[0_0_25px_rgba(255,204,0,0.5)]"
           >
             Join our Community
@@ -131,7 +131,7 @@ export default function Navbar() {
               
               <div className="w-full pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
                 <Link
-                  to="/sub-teams"
+                  to="/join"
                   onClick={() => setIsOpen(false)}
                   className="w-full"
                 >

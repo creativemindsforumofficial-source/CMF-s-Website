@@ -13,6 +13,7 @@
     - `/sub-teams` -> Specialized Guilds & Applications
     - `/ai-symposium` -> Global AI & Creative Think-Tank
     - `/audacity` -> Flagship Annual Conference
+    - `/join` (or `/community`) -> Official WhatsApp Community Hub & Glimpse Cards
     - `*` -> 404 Lost in Creative Space (NotFound)
 
 ## Responsiveness & Device Standards

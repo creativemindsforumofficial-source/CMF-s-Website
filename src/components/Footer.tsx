@@ -8,7 +8,8 @@ const EXPLORE_LINKS = [
   { name: 'Sub-Teams & Guilds', path: '/sub-teams' },
   { name: 'Editorial Blog', path: '/blog' },
   { name: 'Meet the Team', path: '/team' },
-  { name: 'CMF Dispatch', path: '/newsletter' }
+  { name: 'CMF Dispatch', path: '/newsletter' },
+  { name: 'Join WhatsApp', path: '/join' }
 ];
 
 export default function Footer() {
