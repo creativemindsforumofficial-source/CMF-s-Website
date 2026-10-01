@@ -9,8 +9,8 @@ const NAV_LINKS = [
   { name: 'Blog', href: '/blog' },
   { name: 'Meet the Team', href: '/team' },
   { name: 'Newsletter', href: '/newsletter' },
-  { name: 'AI Symposium', href: '#' },
-  { name: 'Sub-Teams', href: '#' },
+  { name: 'AI Symposium', href: '/ai-symposium' },
+  { name: 'Sub-Teams', href: '/sub-teams' },
 ];
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed w-full top-10 z-50 transition-all duration-500 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
         scrolled 
           ? 'bg-[var(--color-cmf-black)]/80 backdrop-blur-md border-b border-white/10 py-3' 
           : 'bg-transparent border-b border-transparent py-5'
@@ -107,54 +107,59 @@ export default function Navbar() {
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 h-screen bg-[var(--color-cmf-black)] z-40 flex flex-col items-center justify-center px-6 border-b border-white/10"
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 h-dvh bg-[var(--color-cmf-black)] z-40 flex flex-col items-center overflow-y-auto pt-24 pb-12 px-6 border-b border-white/10"
           >
-            <nav className="flex flex-col items-center gap-10 w-full">
+            <nav className="flex flex-col items-center gap-5 sm:gap-6 w-full max-w-sm my-auto">
               {NAV_LINKS.map((link, i) => (
                 <Link
                   key={link.name}
                   to={link.href}
                   onClick={() => setIsOpen(false)}
+                  className="w-full text-center py-1"
                 >
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + (i * 0.05), duration: 0.4 }}
-                    className="text-3xl font-medium tracking-tight text-gray-400 hover:text-white transition-colors"
+                    transition={{ delay: 0.15 + (i * 0.04), duration: 0.3 }}
+                    className="text-2xl sm:text-3xl font-medium tracking-tight text-gray-300 hover:text-white transition-colors"
                   >
                     {link.name}
                   </motion.div>
                 </Link>
               ))}
-              <Link
-                to="/audacity"
-                onClick={() => setIsOpen(false)}
-                className="w-full"
-              >
-                 <motion.div
-                   initial={{ opacity: 0, scale: 0.9 }}
-                   animate={{ opacity: 1, scale: 1 }}
-                   transition={{ delay: 0.4, duration: 0.4 }}
-                   className="mt-6 px-10 py-4 bg-transparent border-2 border-white text-white text-xl font-bold tracking-widest uppercase w-full text-center hover:bg-white hover:text-black transition-colors"
-                 >
-                   Audacity '26
-                 </motion.div>
-              </Link>
-              <Link
-                to="/sub-teams"
-                onClick={() => setIsOpen(false)}
-                className="w-full"
-              >
-                 <motion.div
-                   initial={{ opacity: 0, scale: 0.9 }}
-                   animate={{ opacity: 1, scale: 1 }}
-                   transition={{ delay: 0.5, duration: 0.4 }}
-                   className="mt-4 px-10 py-4 bg-transparent border-2 border-[var(--color-cmf-gold)] text-[var(--color-cmf-gold)] shadow-[0_0_15px_rgba(255,204,0,0.2)] text-xl font-bold tracking-widest uppercase w-full text-center hover:bg-[var(--color-cmf-gold)] hover:text-black hover:shadow-[0_0_25px_rgba(255,204,0,0.5)] transition-all duration-300"
-                 >
-                   Join our Community
-                 </motion.div>
-              </Link>
+              
+              <div className="w-full pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
+                <Link
+                  to="/sub-teams"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.45, duration: 0.3 }}
+                    className="px-6 py-3.5 bg-[var(--color-cmf-gold)] text-black text-center text-sm font-bold tracking-widest uppercase rounded-xl hover:bg-yellow-400 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,204,0,0.3)]"
+                  >
+                    Join our Community
+                  </motion.div>
+                </Link>
+                
+                <Link
+                  to="/audacity"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.3 }}
+                    className="px-6 py-3.5 bg-white/5 border border-white/20 text-white text-center text-sm font-bold tracking-widest uppercase rounded-xl hover:bg-white hover:text-black active:scale-95 transition-all"
+                  >
+                    Audacity '26
+                  </motion.div>
+                </Link>
+              </div>
             </nav>
             
             {/* Ambient Background Glow for Mobile Menu */}

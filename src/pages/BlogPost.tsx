@@ -264,7 +264,7 @@ export default function BlogPost() {
                 }
                 return <p {...props}>{children}</p>;
               }
-            }}
+            } as any}
           >
             {content}
           </Markdown>

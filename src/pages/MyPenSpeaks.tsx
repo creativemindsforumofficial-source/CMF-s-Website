@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { PenTool, Mic, Image as ImageIcon } from 'lucide-react';
 import CreativeShowcase from '../components/CreativeShowcase';
 import { Canvas } from '@react-three/fiber';
@@ -22,6 +23,15 @@ export default function MyPenSpeaks() {
 
   return (
     <main className="flex-1 flex flex-col w-full pt-20 pb-0">
+      <Helmet>
+        <title>Creative Archive (My Pen Speaks) | Creative Minds' Forum</title>
+        <meta 
+          name="description" 
+          content="The anonymous archive and showcase of literary weight, spoken cadence, and visual excellence from CMF creators." 
+        />
+        <meta property="og:title" content="Creative Archive | Creative Minds' Forum" />
+      </Helmet>
+
       {/* 1. The Cinematic Hero */}
       <section className="w-full relative px-6 md:px-12 lg:px-16 py-20 lg:py-32 flex flex-col items-center justify-center min-h-[60vh] overflow-hidden">
          {/* Subtle Ethereal Background */}

@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Check, Zap, MapPin } from 'lucide-react';
 import { FormEvent, useState } from 'react';
+
 
 const SPEAKERS = [
   {
@@ -37,6 +39,14 @@ export default function Audacity() {
 
   return (
     <main className="flex-1 flex flex-col w-full pt-32 pb-24">
+      <Helmet>
+        <title>Audacity '26 | Creative Minds' Forum</title>
+        <meta 
+          name="description" 
+          content="The flagship annual conference celebrating bold ideas, revolutionary art, and generational creators worldwide." 
+        />
+        <meta property="og:title" content="Audacity '26 | Creative Minds' Forum" />
+      </Helmet>
       
       {/* 1. Event Hero */}
       <section className="w-full relative px-6 md:px-12 lg:px-16 py-20 text-center flex flex-col items-center justify-center min-h-[60vh]">

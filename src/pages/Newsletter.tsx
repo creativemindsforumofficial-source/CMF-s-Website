@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Target, Lightbulb, User, Check, Flame, Trophy, Mic, PenTool, ImageIcon, Award, Quote } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
 import NeuralWeb from '../components/NeuralWeb';
@@ -22,6 +23,15 @@ export default function Newsletter() {
 
   return (
     <main className="flex-1 flex flex-col w-full pt-20 pb-0 bg-[#050505]">
+      <Helmet>
+        <title>CMF Dispatch (Newsletter) | Creative Minds' Forum</title>
+        <meta 
+          name="description" 
+          content="The official weekly publication exploring creative resilience, emerging tech, theology, and visionary art." 
+        />
+        <meta property="og:title" content="CMF Dispatch | Creative Minds' Forum" />
+      </Helmet>
+
       {/* Cinematic 3D Rocket Load Sequence */}
       <AnimatePresence>
         {showRocket && (

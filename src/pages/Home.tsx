@@ -1,39 +1,25 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import TrustAnchor from '../components/TrustAnchor';
 import CreativeShowcase from '../components/CreativeShowcase';
 import AudacityActionBlock from '../components/AudacityActionBlock';
-import IgnitionLoader from '../components/IgnitionLoader';
 
 export default function Home() {
-  const [isLaunched, setIsLaunched] = useState(false);
-
-  useEffect(() => {
-    // Exact same timer as Phase 1 anticipation length (1.5s)
-    const hoverTimer = setTimeout(() => {
-      setIsLaunched(true);
-    }, 1500);
-
-    return () => clearTimeout(hoverTimer);
-  }, []);
-
   return (
-    <main className={`flex-1 flex flex-col w-full relative ${isLaunched ? 'overflow-visible' : 'overflow-hidden h-[100dvh]'}`}>
-      <IgnitionLoader isLaunched={isLaunched} />
-      
-      {/* The page layout wrapper sliding up attached to the loader */}
-      <motion.div
-        initial={{ y: '100vh' }}
-        animate={isLaunched ? { y: 0 } : { y: '100vh' }}
-        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-        className="flex-1 flex flex-col w-full z-10"
-      >
-        <Hero />
-        <TrustAnchor />
-        <CreativeShowcase />
-        <AudacityActionBlock />
-      </motion.div>
+    <main className="flex-1 flex flex-col w-full relative">
+      <Helmet>
+        <title>Creative Minds' Forum | Your Ideas Will Change the World</title>
+        <meta 
+          name="description" 
+          content="The global stage and pipeline for visionary writers, spoken word artists, cinematic storytellers, and vanguard tech-creatives." 
+        />
+        <meta property="og:title" content="Creative Minds' Forum" />
+        <meta property="og:description" content="Redefining creativity by instilling the God factor, inspiring a generation via infallible truths, and equipping global creatives." />
+      </Helmet>
+      <Hero />
+      <TrustAnchor />
+      <CreativeShowcase />
+      <AudacityActionBlock />
     </main>
   );
 }

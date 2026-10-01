@@ -1,0 +1,24 @@
+# Creative Minds' Forum (CMF) Project Blueprint & Rules
+
+## Core Architectural Principle
+- **Multi-Page Architecture (MPA)**:
+  - The CMF website is an expanding multi-page platform with dedicated, independent pages for each creative domain and initiative.
+  - Distinct routes for:
+    - `/` -> Home
+    - `/about` -> About CMF, Vision & Pillars
+    - `/my-pen-speaks` -> Creative Archive & Anonymous Submissions
+    - `/blog` & `/blog/:slug` -> Editorial Insights & Thought Leadership
+    - `/team` -> Global Team Roster
+    - `/newsletter` -> CMF Dispatch & Community Announcements
+    - `/sub-teams` -> Specialized Guilds & Applications
+    - `/ai-symposium` -> Global AI & Creative Think-Tank
+    - `/audacity` -> Flagship Annual Conference
+    - `*` -> 404 Lost in Creative Space (NotFound)
+
+## Responsiveness & Device Standards
+- **Mandatory Mobile & Tablet-First Optimization**:
+  - Every update, new component, and new page MUST be thoroughly optimized for mobile (320px–640px) and tablet (768px–1024px) viewports before completion.
+  - Card carousels must support fluid touch swiping and horizontal scrolling.
+  - No unintended horizontal body overflow.
+  - Touch-accessible interactive elements (minimum 44px tap targets).
+  - Multi-page scroll resets cleanly to top on every route change.

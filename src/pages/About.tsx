@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Target, Lightbulb, Shield, Users, Network } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
@@ -25,6 +26,15 @@ export default function About() {
 
   return (
     <main className="flex-1 flex flex-col w-full pt-32 pb-24">
+      <Helmet>
+        <title>About CMF | Creative Minds' Forum</title>
+        <meta 
+          name="description" 
+          content="Learn about the origin, visionary pillars, and transformative mission behind the Creative Minds' Forum." 
+        />
+        <meta property="og:title" content="About CMF | Creative Minds' Forum" />
+      </Helmet>
+
       {/* 1. The Visionary Hero */}
       <section className="w-full relative px-6 md:px-12 lg:px-16 py-20 lg:py-32 flex flex-col items-center justify-center min-h-[60vh] overflow-hidden">
          {/* Subtle Ethereal Background */}
