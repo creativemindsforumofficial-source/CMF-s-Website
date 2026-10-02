@@ -9,7 +9,8 @@ const EXPLORE_LINKS = [
   { name: 'Editorial Blog', path: '/blog' },
   { name: 'Meet the Team', path: '/team' },
   { name: 'CMF Dispatch', path: '/newsletter' },
-  { name: 'Join WhatsApp', path: '/join' }
+  { name: 'Join WhatsApp', path: '/join' },
+  { name: '4D AI Fluency Audit', path: '/ai-audit' }
 ];
 
 export default function Footer() {

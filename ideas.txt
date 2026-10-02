@@ -14,6 +14,7 @@
     - `/ai-symposium` -> Global AI & Creative Think-Tank
     - `/audacity` -> Flagship Annual Conference
     - `/join` (or `/community`) -> Official WhatsApp Community Hub & Glimpse Cards
+    - `/ai-audit` (or `/fluency-audit`) -> The 4D AI Fluency Diagnostic Audit & Interactive Radar
     - `*` -> 404 Lost in Creative Space (NotFound)
 
 ## Responsiveness & Device Standards

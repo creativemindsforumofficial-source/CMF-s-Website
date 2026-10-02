@@ -10,10 +10,16 @@ const NAV_LINKS = [
   { name: 'Meet the Team', href: '/team' },
   { name: 'Newsletter', href: '/newsletter' },
   { name: 'AI Symposium', href: '/ai-symposium' },
-  { name: 'Sub-Teams', href: '/sub-teams' },
+  { name: "Audacity '26", href: '/audacity' },
 ];
 
-export default function Navbar() {
+import AnnouncementBanner from './AnnouncementBanner';
+
+interface NavbarProps {
+  onOpenAuditModal?: () => void;
+}
+
+export default function Navbar({ onOpenAuditModal }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -38,13 +44,17 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-500 flex flex-col ${
         scrolled 
-          ? 'bg-[var(--color-cmf-black)]/80 backdrop-blur-md border-b border-white/10 py-3' 
-          : 'bg-transparent border-b border-transparent py-5'
+          ? 'bg-[var(--color-cmf-black)]/90 backdrop-blur-md border-b border-white/10' 
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="w-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
+      <AnnouncementBanner onOpenModal={onOpenAuditModal || (() => {})} />
+
+      <div className={`w-full px-6 md:px-12 lg:px-16 flex items-center justify-between transition-all duration-300 ${
+        scrolled ? 'py-3' : 'py-4 sm:py-5'
+      }`}>
         
         {/* Branding - Left */}
         <Link to="/" className="flex items-center gap-4 z-50 relative group">
@@ -83,10 +93,10 @@ export default function Navbar() {
             Join our Community
           </Link>
           <Link 
-            to="/audacity"
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-black border border-white text-white text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black hover:scale-105 active:scale-95 transition-all duration-300"
+            to="/ai-audit"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-black border border-orange-500/80 text-orange-400 hover:bg-orange-500 hover:text-white text-sm font-bold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_18px_rgba(234,88,12,0.3)] hover:shadow-[0_0_25px_rgba(234,88,12,0.6)] cursor-pointer"
           >
-            Audacity '26
+            4D AUDIT TEST
           </Link>
         </div>
 
@@ -146,17 +156,17 @@ export default function Navbar() {
                 </Link>
                 
                 <Link
-                  to="/audacity"
+                  to="/ai-audit"
                   onClick={() => setIsOpen(false)}
-                  className="w-full"
+                  className="w-full text-left"
                 >
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5, duration: 0.3 }}
-                    className="px-6 py-3.5 bg-white/5 border border-white/20 text-white text-center text-sm font-bold tracking-widest uppercase rounded-xl hover:bg-white hover:text-black active:scale-95 transition-all"
+                    className="px-6 py-3.5 bg-gradient-to-r from-orange-600 to-amber-600 text-white text-center text-sm font-bold tracking-widest uppercase rounded-xl hover:from-orange-500 hover:to-amber-500 active:scale-95 transition-all shadow-[0_0_20px_rgba(234,88,12,0.4)]"
                   >
-                    Audacity '26
+                    4D AUDIT TEST
                   </motion.div>
                 </Link>
               </div>

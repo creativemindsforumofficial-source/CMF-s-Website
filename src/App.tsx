@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import AIAuditModal from './components/AIAuditModal';
 
 import Home from './pages/Home';
 import Audacity from './pages/Audacity';
@@ -20,9 +22,23 @@ import Team from './pages/Team';
 import SubTeams from './pages/SubTeams';
 import AISymposium from './pages/AISymposium';
 import Join from './pages/Join';
+import AIAudit from './pages/AIAudit';
 import NotFound from './pages/NotFound';
 
 export default function App() {
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Trigger announcement pop-up promptly after 400ms
+    const hasDismissed = sessionStorage.getItem('cmf_ai_audit_dismissed');
+    if (!hasDismissed) {
+      const timer = setTimeout(() => {
+        setIsAuditModalOpen(true);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -35,7 +51,8 @@ export default function App() {
           <meta name="theme-color" content="#000000" />
         </Helmet>
         
-        <Navbar />
+        <Navbar onOpenAuditModal={() => setIsAuditModalOpen(true)} />
+        <AIAuditModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
         
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,6 +67,8 @@ export default function App() {
           <Route path="/ai-symposium" element={<AISymposium />} />
           <Route path="/join" element={<Join />} />
           <Route path="/community" element={<Join />} />
+          <Route path="/ai-audit" element={<AIAudit />} />
+          <Route path="/fluency-audit" element={<AIAudit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
