@@ -24,7 +24,7 @@ export default function AnnouncementBanner({ onOpenModal }: AnnouncementBannerPr
         <div className="w-full px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3 max-w-7xl mx-auto text-xs sm:text-sm">
           
           {/* Left / Center: Announcement Content */}
-          <div className="flex-1 flex items-center justify-center sm:justify-start gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
+          <div className="flex-1 min-w-0 flex items-center justify-center sm:justify-start gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
             {/* Pill Badge */}
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-orange-500/20 border border-orange-500/35 text-orange-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />

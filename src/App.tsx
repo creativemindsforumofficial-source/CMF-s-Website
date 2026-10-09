@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import CustomScroller from './components/CustomScroller';
 import AIAuditModal from './components/AIAuditModal';
 
 import Home from './pages/Home';
@@ -21,6 +22,7 @@ import Blog from './pages/Blog';
 import Team from './pages/Team';
 import SubTeams from './pages/SubTeams';
 import AISymposium from './pages/AISymposium';
+import Programs from './pages/Programs';
 import Join from './pages/Join';
 import AIAudit from './pages/AIAudit';
 import NotFound from './pages/NotFound';
@@ -42,6 +44,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <CustomScroller />
       <div className="min-h-screen bg-[var(--color-cmf-black)] text-[var(--color-cmf-white)] selection:bg-[var(--color-cmf-accent)] selection:text-white flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
         <Helmet>
           <title>Creative Minds' Forum</title>
@@ -64,6 +67,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/team" element={<Team />} />
           <Route path="/sub-teams" element={<SubTeams />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/our-programs" element={<Programs />} />
           <Route path="/ai-symposium" element={<AISymposium />} />
           <Route path="/join" element={<Join />} />
           <Route path="/community" element={<Join />} />

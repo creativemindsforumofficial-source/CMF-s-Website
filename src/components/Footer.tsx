@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom';
 
 const EXPLORE_LINKS = [
   { name: 'About CMF', path: '/about' },
+  { name: 'Our Programs', path: '/programs' },
   { name: 'Creative Archive', path: '/my-pen-speaks' },
-  { name: 'AI Symposium', path: '/ai-symposium' },
   { name: 'Audacity Conference', path: '/audacity' },
+  { name: 'AI Symposium', path: '/ai-symposium' },
   { name: 'Sub-Teams & Guilds', path: '/sub-teams' },
   { name: 'Editorial Blog', path: '/blog' },
-  { name: 'Meet the Team', path: '/team' },
   { name: 'CMF Dispatch', path: '/newsletter' },
   { name: 'Join WhatsApp', path: '/join' },
-  { name: '4D AI Fluency Audit', path: '/ai-audit' }
+  { name: '4D AI Fluency Audit', path: '/ai-audit' },
+  // Unactivated for now (Preserved, do not delete):
+  // { name: 'Meet the Team', path: '/team' },
 ];
 
 export default function Footer() {
@@ -72,12 +74,20 @@ export default function Footer() {
               creativemindsforum.official@gmail.com
             </a>
             <a 
-              href="https://x.com/official_cmfglobal" 
+              href="https://x.com/cmf_hq" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-400 hover:text-[var(--color-cmf-accent)] transition-colors text-sm font-medium"
             >
-              Follow: @official_cmfglobal
+              Follow: @cmf_hq
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/creative-minds-forum/?" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-[var(--color-cmf-accent)] transition-colors text-sm font-medium"
+            >
+              LinkedIn: Creative Minds' Forum
             </a>
             <div className="pt-2">
               <Link

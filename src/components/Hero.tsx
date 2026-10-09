@@ -7,49 +7,18 @@ import NeuralWeb from './NeuralWeb';
 // ── Social Platform Icons (Cinematic Floating Emblems) ─────────────────
 const SOCIALS = [
   {
-    name: 'YouTube',
-    href: '#',
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/creative-minds-forum/?',
     icon: (
       <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12">
-        <path
-          fill="#FF0000"
-          d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
-        />
-        <polygon fill="#FFFFFF" points="9.5,8.4 15.8,12 9.5,15.6" />
-      </svg>
-    ),
-    glow: 'rgba(255, 0, 0, 0.65)',
-    tilt: -18,
-    offsetX: '-155px',
-    offsetY: '18px',
-  },
-  {
-    name: 'TikTok',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-11 sm:h-11">
-        <path
-          fill="#00F2EA"
-          d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-          transform="translate(-1.5, -0.5)"
-          opacity="0.9"
-        />
-        <path
-          fill="#FE2C55"
-          d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-          transform="translate(1.5, 0.5)"
-          opacity="0.9"
-        />
+        <rect width="24" height="24" rx="5.5" fill="#0A66C2" />
         <path
           fill="#FFFFFF"
-          d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+          d="M19 19h-3v-4.7c0-1.1-.4-1.9-1.4-1.9-.8 0-1.3.5-1.5 1.1-.1.2-.1.5-.1.8V19h-3V9.5h3V11c.4-.7 1.3-1.7 3-1.7 2.2 0 3 1.5 3 4.2V19zM6.5 8.2c-1 0-1.7-.8-1.7-1.7s.7-1.7 1.7-1.7 1.7.8 1.7 1.7-.7 1.7-1.7 1.7zM5 19h3V9.5H5V19z"
         />
       </svg>
     ),
-    glow: 'rgba(0, 242, 234, 0.65)',
-    tilt: 22,
-    offsetX: '-75px',
-    offsetY: '-10px',
+    glow: 'rgba(10, 102, 194, 0.65)',
   },
   {
     name: 'Instagram',
@@ -72,30 +41,10 @@ const SOCIALS = [
       </svg>
     ),
     glow: 'rgba(214, 36, 159, 0.65)',
-    tilt: -12,
-    offsetX: '0px',
-    offsetY: '14px',
-  },
-  {
-    name: 'LinkedIn',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-10 h-10 sm:w-12 sm:h-12">
-        <rect width="24" height="24" rx="5.5" fill="#0A66C2" />
-        <path
-          fill="#FFFFFF"
-          d="M19 19h-3v-4.7c0-1.1-.4-1.9-1.4-1.9-.8 0-1.3.5-1.5 1.1-.1.2-.1.5-.1.8V19h-3V9.5h3V11c.4-.7 1.3-1.7 3-1.7 2.2 0 3 1.5 3 4.2V19zM6.5 8.2c-1 0-1.7-.8-1.7-1.7s.7-1.7 1.7-1.7 1.7.8 1.7 1.7-.7 1.7-1.7 1.7zM5 19h3V9.5H5V19z"
-        />
-      </svg>
-    ),
-    glow: 'rgba(10, 102, 194, 0.65)',
-    tilt: 25,
-    offsetX: '75px',
-    offsetY: '-8px',
   },
   {
     name: 'X',
-    href: 'https://x.com/official_cmfglobal',
+    href: 'https://x.com/cmf_hq',
     icon: (
       <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-11 sm:h-11">
         <path
@@ -105,9 +54,6 @@ const SOCIALS = [
       </svg>
     ),
     glow: 'rgba(255, 255, 255, 0.55)',
-    tilt: -22,
-    offsetX: '155px',
-    offsetY: '16px',
   },
 ];
 
@@ -128,7 +74,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center overflow-x-clip pt-24 pb-16 sm:pt-28 sm:pb-20 select-none">
+    <section className="relative w-full min-h-[100dvh] flex flex-col justify-center items-center overflow-x-clip pt-36 pb-20 sm:pt-44 sm:pb-24 lg:pt-48 select-none">
       {/* ── 3D Canvas / Background ── */}
       <div className="absolute inset-0 z-0 bg-[var(--color-cmf-black)] pointer-events-none">
         {!isLowPower ? (
@@ -160,19 +106,19 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 pointer-events-none hidden xl:block">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="lineGradLeft" x1="50%" y1="20%" x2="10%" y2="8%">
+            <linearGradient id="lineGradLeft" x1="50%" y1="24%" x2="10%" y2="14%">
               <stop offset="0%" stopColor="rgba(255,204,0,0.4)" />
               <stop offset="100%" stopColor="rgba(255,204,0,0.02)" />
             </linearGradient>
-            <linearGradient id="lineGradRight" x1="50%" y1="20%" x2="90%" y2="8%">
+            <linearGradient id="lineGradRight" x1="50%" y1="24%" x2="90%" y2="14%">
               <stop offset="0%" stopColor="rgba(255,204,0,0.4)" />
               <stop offset="100%" stopColor="rgba(255,204,0,0.02)" />
             </linearGradient>
           </defs>
-          <line x1="50%" y1="18%" x2="14%" y2="12%" stroke="url(#lineGradLeft)" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.6" />
-          <line x1="50%" y1="18%" x2="20%" y2="28%" stroke="url(#lineGradLeft)" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
-          <line x1="50%" y1="18%" x2="86%" y2="12%" stroke="url(#lineGradRight)" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.6" />
-          <line x1="50%" y1="18%" x2="80%" y2="28%" stroke="url(#lineGradRight)" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
+          <line x1="50%" y1="23%" x2="14%" y2="16%" stroke="url(#lineGradLeft)" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.6" />
+          <line x1="50%" y1="23%" x2="20%" y2="34%" stroke="url(#lineGradLeft)" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
+          <line x1="50%" y1="23%" x2="86%" y2="16%" stroke="url(#lineGradRight)" strokeWidth="1.2" strokeDasharray="4 6" opacity="0.6" />
+          <line x1="50%" y1="23%" x2="80%" y2="34%" stroke="url(#lineGradRight)" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
         </svg>
       </div>
 
@@ -189,7 +135,7 @@ export default function Hero() {
             opacity: { duration: 0.8, delay: 0.2 },
             y: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
           }}
-          className="absolute top-[10%] left-[4%] 2xl:left-[7%] pointer-events-auto flex items-center gap-3 bg-[#131316]/90 backdrop-blur-xl border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:border-[var(--color-cmf-gold)]/40 transition-colors cursor-pointer group"
+          className="absolute top-[18%] 2xl:top-[17%] left-[4%] 2xl:left-[7%] pointer-events-auto flex items-center gap-3 bg-[#131316]/90 backdrop-blur-xl border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:border-[var(--color-cmf-gold)]/40 transition-colors cursor-pointer group"
         >
           <div className="w-8 h-8 rounded-xl bg-[var(--color-cmf-gold)]/10 border border-[var(--color-cmf-gold)]/30 flex items-center justify-center text-[var(--color-cmf-gold)]">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -213,7 +159,7 @@ export default function Hero() {
             opacity: { duration: 0.8, delay: 0.4 },
             y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
           }}
-          className="absolute top-[24%] left-[2%] 2xl:left-[4%] pointer-events-auto flex items-center gap-2.5 bg-[#141418]/90 backdrop-blur-xl border border-white/10 p-2.5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:border-amber-400/40 transition-colors cursor-pointer"
+          className="absolute top-[32%] 2xl:top-[30%] left-[2%] 2xl:left-[4%] pointer-events-auto flex items-center gap-2.5 bg-[#141418]/90 backdrop-blur-xl border border-white/10 p-2.5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:border-amber-400/40 transition-colors cursor-pointer"
         >
           <img src="/Arise.jpg" alt="Author" className="w-10 h-10 rounded-xl object-cover border border-white/15" />
           <div className="pr-2">
@@ -239,7 +185,7 @@ export default function Hero() {
             opacity: { duration: 0.8, delay: 0.3 },
             y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
           }}
-          className="absolute top-[10%] right-[4%] 2xl:right-[7%] pointer-events-auto flex items-center gap-3 bg-[#131316]/90 backdrop-blur-xl border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:border-purple-400/40 transition-colors cursor-pointer group"
+          className="absolute top-[18%] 2xl:top-[17%] right-[4%] 2xl:right-[7%] pointer-events-auto flex items-center gap-3 bg-[#131316]/90 backdrop-blur-xl border border-white/10 px-4 py-2.5 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:border-purple-400/40 transition-colors cursor-pointer group"
         >
           <div className="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -261,7 +207,7 @@ export default function Hero() {
             opacity: { duration: 0.8, delay: 0.5 },
             y: { duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.7 },
           }}
-          className="absolute top-[24%] right-[2%] 2xl:right-[4%] pointer-events-auto flex items-center gap-2.5 bg-[#141418]/90 backdrop-blur-xl border border-white/10 p-2.5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:border-cyan-400/40 transition-colors cursor-pointer"
+          className="absolute top-[32%] 2xl:top-[30%] right-[2%] 2xl:right-[4%] pointer-events-auto flex items-center gap-2.5 bg-[#141418]/90 backdrop-blur-xl border border-white/10 p-2.5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:border-cyan-400/40 transition-colors cursor-pointer"
         >
           <img src="/RAD.jpg" alt="Vanguard Lead" className="w-10 h-10 rounded-xl object-cover border border-white/15" />
           <div className="pr-2 font-mono">
@@ -545,39 +491,31 @@ export default function Hero() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            CINEMATIC FLOATING SOCIAL ICONS (Mobile-Adaptive Responsive Arc)
+            CINEMATIC FLOATING SOCIAL ICONS (Centralized Responsive Group)
             ═══════════════════════════════════════════════════════════════════ */}
-        {/* Desktop / Tablet Arc Layout */}
-        <div className="relative mt-8 sm:mt-12 h-20 sm:h-24 w-full hidden sm:flex items-center justify-center">
+        <div className="relative mt-8 sm:mt-10 flex items-center justify-center gap-5 sm:gap-7 w-full">
           {SOCIALS.map((social, i) => (
             <motion.div
               key={social.name}
-              initial={{ opacity: 0, y: 30, scale: 0.6 }}
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.5 + i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute"
-              style={{
-                left: `calc(50% + ${social.offsetX})`,
-                top: social.offsetY,
-                transform: `translateX(-50%) rotate(${social.tilt}deg)`,
-              }}
+              transition={{ delay: 0.5 + i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <motion.a
                 href={social.href}
                 target={social.href.startsWith('http') ? '_blank' : undefined}
                 rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 whileHover={{
-                  y: -12,
-                  scale: 1.28,
-                  rotate: 0,
-                  transition: { duration: 0.28, ease: [0.34, 1.56, 0.64, 1] },
+                  y: -8,
+                  scale: 1.18,
+                  transition: { duration: 0.25, ease: [0.34, 1.56, 0.64, 1] },
                 }}
                 whileTap={{ scale: 0.9 }}
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4.2 + i * 0.45, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative flex items-center justify-center p-3 cursor-pointer group/icon"
+                transition={{ duration: 3.8 + i * 0.4, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative flex items-center justify-center p-2.5 sm:p-3 cursor-pointer group/icon min-w-[44px] min-h-[44px]"
                 style={{
-                  filter: `drop-shadow(0 10px 22px ${social.glow})`,
+                  filter: `drop-shadow(0 8px 20px ${social.glow})`,
                 }}
                 aria-label={social.name}
               >
@@ -586,41 +524,6 @@ export default function Hero() {
                   style={{ backgroundColor: social.glow }}
                 />
                 <span className="relative z-10 transition-transform duration-300 group-hover/icon:scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  {social.icon}
-                </span>
-              </motion.a>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile Dedicated Arc (Screens < 640px: Perfectly spaced, non-overflowing) */}
-        <div className="flex sm:hidden items-center justify-between w-full max-w-[320px] px-3 mt-8 mb-2">
-          {SOCIALS.map((social, i) => (
-            <motion.div
-              key={social.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.08, duration: 0.6 }}
-              style={{ transform: `rotate(${social.tilt}deg)` }}
-            >
-              <motion.a
-                href={social.href}
-                target={social.href.startsWith('http') ? '_blank' : undefined}
-                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                whileTap={{ scale: 0.88 }}
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 3.5 + i * 0.4, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative flex items-center justify-center p-2 cursor-pointer active:scale-90"
-                style={{
-                  filter: `drop-shadow(0 6px 14px ${social.glow})`,
-                }}
-                aria-label={social.name}
-              >
-                <div
-                  className="absolute inset-0 rounded-full opacity-25 blur-lg pointer-events-none scale-125"
-                  style={{ backgroundColor: social.glow }}
-                />
-                <span className="relative z-10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
                   {social.icon}
                 </span>
               </motion.a>
