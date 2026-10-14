@@ -17,11 +17,11 @@ import { Link } from 'react-router-dom';
 const SUB_TEAMS = [
   {
     id: 'writers',
-    title: 'Writers Guild',
+    title: 'Writers Collective',
     badge: 'LITERATURE & PROSE',
     icon: PenTool,
-    color: 'from-amber-500/20 to-orange-500/5',
-    accentColor: '#f59e0b',
+    color: 'from-[#FFE066]/20 to-[#FFCC00]/5',
+    accentColor: '#FFCC00',
     description: 'The narrative core of CMF. Architects of long-form thought, profound essays, poetic cadence, and cinematic world-building scripts.',
     responsibilities: [
       'Editorial curation for CMF publications and anthology',
@@ -65,8 +65,8 @@ const SUB_TEAMS = [
     title: 'Creative Tech & AI',
     badge: 'SYNTHESIS & CODE',
     icon: Cpu,
-    color: 'from-emerald-500/20 to-teal-500/5',
-    accentColor: '#10b981',
+    color: 'from-[#FFE066]/20 to-[#FFCC00]/5',
+    accentColor: '#FFCC00',
     description: 'Pioneers exploring the intersection of synthetic intelligence, algorithmic art, interactive WebGL, and generative creativity.',
     responsibilities: [
       'Building interactive digital experiences and tools',
@@ -80,8 +80,8 @@ const SUB_TEAMS = [
     title: 'Global Operations',
     badge: 'SYSTEMS & STRATEGY',
     icon: Globe,
-    color: 'from-[#FF5B04]/20 to-[#D94800]/5',
-    accentColor: '#FF5B04',
+    color: 'from-[#FFE066]/20 to-[#FFCC00]/5',
+    accentColor: '#FFCC00',
     description: 'The organizational backbone orchestrating international events, partnerships, creator pipelines, and community ecosystem health.',
     responsibilities: [
       'International summit and venue operations',
@@ -96,13 +96,13 @@ export default function SubTeams() {
   return (
     <main className="flex-1 flex flex-col w-full pt-28 pb-20 sm:pt-32 sm:pb-28 bg-[#050505] text-white">
       <Helmet>
-        <title>Sub-Teams & Guilds | Creative Minds' Forum</title>
+        <title>Sub-Teams & Collectives | Creative Minds' Forum</title>
         <meta 
           name="description" 
-          content="Explore the specialized sub-teams and creator guilds powering Creative Minds' Forum worldwide. Find your pipeline and join the movement." 
+          content="Explore the specialized sub-teams and creative pipelines powering Creative Minds' Forum worldwide. Find your pipeline and join the movement." 
         />
-        <meta property="og:title" content="Sub-Teams & Guilds | Creative Minds' Forum" />
-        <meta property="og:description" content="Explore the specialized sub-teams and creator guilds powering Creative Minds' Forum worldwide." />
+        <meta property="og:title" content="Sub-Teams & Collectives | Creative Minds' Forum" />
+        <meta property="og:description" content="Explore the specialized sub-teams and creative pipelines powering Creative Minds' Forum worldwide." />
       </Helmet>
 
       {/* Hero Section */}
@@ -110,7 +110,7 @@ export default function SubTeams() {
         <div className="flex items-center gap-3 mb-6">
           <span className="w-8 h-[1px] bg-[var(--color-cmf-gold)]" />
           <span className="text-[var(--color-cmf-gold)] font-mono text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">
-            Specialized Guilds
+            Specialized Collectives
           </span>
           <span className="w-8 h-[1px] bg-[var(--color-cmf-gold)]" />
         </div>
@@ -123,7 +123,7 @@ export default function SubTeams() {
         </h1>
 
         <p className="text-gray-400 text-base sm:text-lg md:text-xl font-light max-w-2xl leading-relaxed">
-          CMF operates through specialized sub-teams—focused creative guilds where visionary thinkers, artists, and builders collaborate to produce generational work.
+          CMF operates through specialized sub-teams—focused creative collectives where visionary thinkers, artists, and builders collaborate to produce generational work.
         </p>
       </section>
 
@@ -176,15 +176,15 @@ export default function SubTeams() {
 
                 {/* Card Footer: Status & Apply CTA */}
                 <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[11px] font-mono text-[#FFCC00] font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
                     {team.status}
                   </span>
                   <a
                     href="mailto:creativemindsforum.official@gmail.com?subject=Application%20for%20CMF%20Sub-Team:%20"
                     className="text-xs font-semibold text-[var(--color-cmf-gold)] hover:text-white flex items-center gap-1 group/btn transition-colors"
                   >
-                    <span>Apply to Guild</span>
+                    <span>Apply to Team</span>
                     <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 </div>

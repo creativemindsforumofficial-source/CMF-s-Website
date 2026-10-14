@@ -1,25 +1,10 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Target, Lightbulb, User, Check, Flame, Trophy, Mic, PenTool, ImageIcon, Award, Quote } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-import NeuralWeb from '../components/NeuralWeb';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Newsletter() {
-  const [isLowPower, setIsLowPower] = useState(false);
   const [showRocket, setShowRocket] = useState(true);
-
-  useEffect(() => {
-    const checkPerformance = () => {
-      const isMobile = window.innerWidth < 768;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isLowCores = (navigator.hardwareConcurrency || 4) < 4;
-      setIsLowPower(isMobile || prefersReducedMotion || isLowCores);
-    };
-    checkPerformance();
-    window.addEventListener('resize', checkPerformance);
-    return () => window.removeEventListener('resize', checkPerformance);
-  }, []);
 
   return (
     <main className="flex-1 flex flex-col w-full pt-20 pb-0 bg-[#050505]">
@@ -111,14 +96,7 @@ export default function Newsletter() {
          {/* Atmospheric Background */}
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-cmf-gold)]/[0.05] via-black to-black z-0 pointer-events-none" />
          
-         {!isLowPower && (
-           <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-             <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-               <ambientLight intensity={0.5} />
-               <NeuralWeb />
-             </Canvas>
-           </div>
-         )}
+
 
          {/* 3D Rocket / Ascension Animation Sequence */}
          <motion.div

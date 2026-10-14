@@ -66,8 +66,8 @@ const CATEGORIES: QuestionCategory[] = [
     num: 3,
     title: 'Discernment (The Human Defense)',
     subtitle: 'How rigorously do you scrutinize outputs to prevent automation bias and cultural erasure?',
-    themeColor: '#25D366',
-    accentBg: 'rgba(37, 211, 102, 0.15)',
+    themeColor: '#FFCC00',
+    accentBg: 'rgba(255, 204, 0, 0.15)',
     icon: Shield,
     questions: [
       "I actively scrutinize AI outputs for cultural homogenization, Western bias, or inaccurate African stereotypes.",
@@ -151,9 +151,9 @@ function RadarChart({ scores }: RadarChartProps) {
       <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-full overflow-visible">
         <defs>
           <radialGradient id="radarRadialGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#EA580C" stopOpacity="0.45" />
-            <stop offset="70%" stopColor="#F59E0B" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#EA580C" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFCC00" stopOpacity="0.45" />
+            <stop offset="70%" stopColor="#FFE066" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#E69D00" stopOpacity="0" />
           </radialGradient>
           <filter id="radarGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="4" result="blur" />
@@ -193,17 +193,17 @@ function RadarChart({ scores }: RadarChartProps) {
         <polygon
           points={points}
           fill="url(#radarRadialGlow)"
-          stroke="#EA580C"
+          stroke="#FFCC00"
           strokeWidth="2.5"
           filter="url(#radarGlow)"
           className="transition-all duration-700 ease-out"
         />
 
         {/* Vertices Dots */}
-        <circle cx={center} cy={center - rDelegation} r="4.5" fill="#FFE066" stroke="#EA580C" strokeWidth="2" />
-        <circle cx={center + rDescription} cy={center} r="4.5" fill="#FFE066" stroke="#EA580C" strokeWidth="2" />
-        <circle cx={center} cy={center + rDiscernment} r="4.5" fill="#FFE066" stroke="#EA580C" strokeWidth="2" />
-        <circle cx={center - rDiligence} cy={center} r="4.5" fill="#FFE066" stroke="#EA580C" strokeWidth="2" />
+        <circle cx={center} cy={center - rDelegation} r="4.5" fill="#FFE066" stroke="#FFCC00" strokeWidth="2" />
+        <circle cx={center + rDescription} cy={center} r="4.5" fill="#FFE066" stroke="#FFCC00" strokeWidth="2" />
+        <circle cx={center} cy={center + rDiscernment} r="4.5" fill="#FFE066" stroke="#FFCC00" strokeWidth="2" />
+        <circle cx={center - rDiligence} cy={center} r="4.5" fill="#FFE066" stroke="#FFCC00" strokeWidth="2" />
 
         {/* Axis Labels */}
         <text x={center} y={center - maxRadius - 12} textAnchor="middle" fill="#FFFFFF" fontSize="11" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="bold">
@@ -283,7 +283,7 @@ export default function AIAudit() {
   } else if (totalScore <= 85) {
     archetypeTitle = 'The AI-Augmented Creative';
     archetypeTag = 'Low Risk • High Leverage';
-    archetypeColor = 'from-emerald-400 to-teal-500 text-emerald-400';
+    archetypeColor = 'from-amber-300 to-yellow-500 text-yellow-400';
     archetypeDesc = 'Low Risk. You have established a strong cognitive partnership with AI. You iterate well, engineer solid context, and maintain a robust baseline of human defense and ethical diligence.';
   } else {
     archetypeTitle = 'The Systems Architect';
@@ -326,12 +326,12 @@ export default function AIAudit() {
         <meta property="og:url" content="https://creativemindsforum.com/ai-audit" />
       </Helmet>
 
-      <main className="min-h-screen bg-[#07070A] text-white pt-24 sm:pt-32 pb-32 px-4 sm:px-6 lg:px-8 selection:bg-orange-500/30 selection:text-white relative overflow-hidden">
+      <main className="min-h-screen bg-[#07070A] text-white pt-24 sm:pt-28 pb-24 px-4 sm:px-6 lg:px-8 selection:bg-[#FFCC00]/30 selection:text-white relative overflow-hidden">
         
         {/* ── Ambient Background Lighting ── */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[550px] bg-gradient-to-b from-orange-500/15 via-[var(--color-cmf-gold)]/5 to-transparent blur-[140px] pointer-events-none -z-10" />
-        <div className="absolute top-[40%] right-[-10%] w-[500px] h-[600px] bg-indigo-600/[0.05] blur-[160px] pointer-events-none -z-10" />
-        <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/[0.04] blur-[160px] pointer-events-none -z-10" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[450px] bg-[radial-gradient(circle,rgba(255,204,0,0.12)_0%,transparent_70%)] blur-[120px] pointer-events-none -z-10" />
+        <div className="absolute top-[40%] right-[-10%] w-[450px] h-[500px] bg-amber-500/[0.04] blur-[150px] pointer-events-none -z-10" />
+        <div className="absolute bottom-[20%] left-[-10%] w-[450px] h-[450px] bg-yellow-500/[0.03] blur-[150px] pointer-events-none -z-10" />
 
         {/* ── Background Grid Pattern ── */}
         <div 
@@ -347,29 +347,16 @@ export default function AIAudit() {
           {/* ═════════════════════════════════════════════════════════════════
               PAGE HEADER
               ═════════════════════════════════════════════════════════════════ */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            
-            {/* Top Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md text-xs font-mono text-gray-300 mb-5 shadow-xs"
-            >
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-[0_0_8px_#ea580c]" />
-              <span className="text-orange-400 font-semibold uppercase tracking-wider">Creatives Connect</span>
-              <span className="text-gray-500">•</span>
-              <span className="text-gray-400">4D AI Fluency Framework</span>
-            </motion.div>
-
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight"
             >
               The 4D AI Fluency{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[var(--color-cmf-gold)] to-orange-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
                 Audit
               </span>
             </motion.h1>
@@ -379,9 +366,9 @@ export default function AIAudit() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mt-4 text-sm sm:text-base md:text-lg text-gray-300 font-light leading-relaxed max-w-2xl mx-auto"
+              className="mt-3.5 text-sm sm:text-base text-zinc-300 font-normal leading-relaxed max-w-xl mx-auto"
             >
-              Discover your vulnerability to the gig economy polarization. Answer the 20 questions below to calculate your strategic career positioning and find out if you are a <strong className="text-white font-medium">Commodity Laborer</strong> or a <strong className="text-[var(--color-cmf-gold)] font-medium">Systems Architect</strong>.
+              Discover your career positioning in the AI revolution. Answer the 20 framework questions below to diagnose whether you are a <strong className="text-white font-medium">Commodity Laborer</strong> or a <strong className="text-[#FFCC00] font-medium">Systems Architect</strong>.
             </motion.p>
 
             {/* Academic & Theoretical Attribution */}
@@ -389,7 +376,7 @@ export default function AIAudit() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-xs font-serif italic text-gray-500 border-t border-white/[0.08] pt-3 max-w-lg mx-auto"
+              className="mt-3.5 text-xs font-serif italic text-zinc-500 border-t border-white/10 pt-3 max-w-md mx-auto"
             >
               *Based on the foundational AI Fluency 4D Framework developed by Rick Dakan, Joseph Feller, and Anthropic.
             </motion.p>
@@ -401,28 +388,28 @@ export default function AIAudit() {
           <AnimatePresence>
             {isCalculated && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.96, y: 30 }}
+                initial={{ opacity: 0, scale: 0.98, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96, y: -20 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-16 space-y-8"
+                exit={{ opacity: 0, scale: 0.98, y: -20 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-12 space-y-6"
               >
                 {/* Hero Results Card */}
-                <div className="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-[#12121A] to-[#0A0A10] border border-orange-500/40 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(234,88,12,0.2)] overflow-hidden">
+                <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 bg-gradient-to-br from-[#12121A] to-[#0A0A10] border border-[#FFCC00]/30 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(255,204,0,0.15)] overflow-hidden">
                   
                   {/* Decorative Radial Accent */}
-                  <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 blur-[100px] pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-[#FFCC00]/10 blur-[100px] pointer-events-none" />
 
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
                     
                     {/* Diagnosis Text */}
                     <div className="md:col-span-7 space-y-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono font-semibold uppercase tracking-wider text-orange-400">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono font-semibold uppercase tracking-wider text-[#FFCC00]">
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>Your Career Diagnosis</span>
                       </div>
 
-                      <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
                         {archetypeTitle}
                       </h2>
 
@@ -430,25 +417,25 @@ export default function AIAudit() {
                         {archetypeTag}
                       </span>
 
-                      <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed">
+                      <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
                         {archetypeDesc}
                       </p>
 
                       {/* Total Score Counter */}
-                      <div className="pt-2 flex items-baseline gap-3">
+                      <div className="pt-2 flex items-baseline gap-2.5">
                         <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">
                           {totalScore}
                         </span>
-                        <span className="text-xl sm:text-2xl text-gray-400 font-mono font-medium">
+                        <span className="text-xl sm:text-2xl text-[#FFCC00] font-mono font-bold">
                           / 100
                         </span>
                       </div>
                     </div>
 
                     {/* Dynamic SVG Radar Chart */}
-                    <div className="md:col-span-5 flex flex-col items-center justify-center p-4 rounded-2xl bg-black/40 border border-white/10 shadow-inner">
+                    <div className="md:col-span-5 flex flex-col items-center justify-center p-5 rounded-2xl bg-black/60 border border-white/10 shadow-inner">
                       <RadarChart scores={scores} />
-                      <span className="mt-2 text-[10px] font-mono text-gray-400 uppercase tracking-widest">
+                      <span className="mt-2.5 text-[10px] font-mono text-zinc-400 uppercase tracking-widest text-center">
                         4D Career Positioning Polygon
                       </span>
                     </div>
@@ -456,53 +443,53 @@ export default function AIAudit() {
                 </div>
 
                 {/* Strength & Critical Vulnerability Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Greatest Strength */}
-                  <div className="p-6 rounded-3xl bg-white/[0.03] border border-emerald-500/30 backdrop-blur-md">
-                    <div className="flex items-center gap-2.5 mb-3 text-emerald-400 font-semibold text-sm font-mono uppercase tracking-wider">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-[#FFCC00]/30 backdrop-blur-md">
+                    <div className="flex items-center gap-2 mb-2.5 text-[#FFCC00] font-semibold text-xs font-mono uppercase tracking-wider">
                       <CheckCircle2 className="w-4 h-4" />
                       <span>Your Greatest Strength</span>
                     </div>
-                    <div className="text-lg font-bold text-white mb-2">
+                    <div className="text-base sm:text-lg font-bold text-white mb-2">
                       {CATEGORIES.find((c) => c.id === highestCategory)?.title.split(' ')[0]} Fluency
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+                    <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
                       {FEEDBACK[highestCategory]}
                     </p>
                   </div>
 
                   {/* Critical Vulnerability */}
-                  <div className="p-6 rounded-3xl bg-white/[0.03] border border-orange-500/30 backdrop-blur-md">
-                    <div className="flex items-center gap-2.5 mb-3 text-orange-400 font-semibold text-sm font-mono uppercase tracking-wider">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-orange-500/30 backdrop-blur-md">
+                    <div className="flex items-center gap-2 mb-2.5 text-orange-400 font-semibold text-xs font-mono uppercase tracking-wider">
                       <AlertTriangle className="w-4 h-4" />
                       <span>Critical Vulnerability</span>
                     </div>
-                    <div className="text-lg font-bold text-white mb-2">
+                    <div className="text-base sm:text-lg font-bold text-white mb-2">
                       {CATEGORIES.find((c) => c.id === lowestCategory)?.title.split(' ')[0]} Risk
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+                    <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
                       {WARNINGS[lowestCategory]}
                     </p>
                   </div>
                 </div>
 
                 {/* 4 Dimension Numeric Tally */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                   {CATEGORIES.map((cat) => {
                     const sc = scores[cat.id];
                     const pct = Math.round((sc / 25) * 100);
                     return (
-                      <div key={cat.id} className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08]">
-                        <div className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">
+                      <div key={cat.id} className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08]">
+                        <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
                           {cat.title.split(' ')[0]}
                         </div>
                         <div className="text-xl sm:text-2xl font-bold text-white mt-1">
-                          {sc} <span className="text-xs text-gray-400 font-normal">/ 25</span>
+                          {sc} <span className="text-xs text-zinc-500 font-normal">/ 25</span>
                         </div>
-                        <div className="w-full h-1.5 bg-white/10 rounded-full mt-2 overflow-hidden">
+                        <div className="w-full h-1.5 bg-white/10 rounded-full mt-2.5 overflow-hidden">
                           <div
-                            className="h-full rounded-full transition-all duration-700"
-                            style={{ width: `${pct}%`, backgroundColor: cat.themeColor }}
+                            className="h-full rounded-full transition-all duration-700 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]"
+                            style={{ width: `${pct}%` }}
                           />
                         </div>
                       </div>
@@ -511,19 +498,19 @@ export default function AIAudit() {
                 </div>
 
                 {/* Action Buttons: Retake, Share, Ecosystem Bridge */}
-                <div className="p-6 rounded-3xl bg-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
                   <button
                     onClick={handleReset}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-gray-200 hover:text-white font-medium text-xs sm:text-sm transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-zinc-200 hover:text-white font-medium text-xs sm:text-sm transition-all cursor-pointer min-h-[44px]"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Retake Audit</span>
                   </button>
 
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
                     <button
                       onClick={handleShare}
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm transition-all shadow-[0_4px_16px_rgba(234,88,12,0.3)] cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs sm:text-sm transition-all border border-white/15 cursor-pointer min-h-[44px]"
                     >
                       <Share2 className="w-4 h-4" />
                       <span>{copiedLink ? 'Diagnosis Copied!' : 'Share Your Diagnosis'}</span>
@@ -531,9 +518,9 @@ export default function AIAudit() {
 
                     <Link
                       to="/join"
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-cmf-gold)] hover:bg-[#FFE066] text-black font-bold text-xs sm:text-sm transition-all shadow-[0_4px_16px_rgba(255,204,0,0.3)]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 font-bold text-xs sm:text-sm transition-all shadow-[0_4px_16px_rgba(255,204,0,0.35)] hover:brightness-110 min-h-[44px]"
                     >
-                      <span>Join WhatsApp Guild</span>
+                      <span>Join Community</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -542,69 +529,84 @@ export default function AIAudit() {
             )}
           </AnimatePresence>
 
-          {/* ═════════════════════════════════════════════════════════════════
+          {/* ═════════════════════════════════════════════════════════════
               AUDIT QUESTIONS FORM (Hidden when calculated, shown otherwise)
-              ═════════════════════════════════════════════════════════════════ */}
+              ═════════════════════════════════════════════════════════════ */}
           {!isCalculated && (
-            <div className="space-y-8 sm:space-y-12">
+            <div className="space-y-6 sm:space-y-8">
               {CATEGORIES.map((category) => {
-                const Icon = category.icon;
                 return (
                   <section
                     key={category.id}
-                    className="bg-[#0D0D14]/90 rounded-3xl border border-white/10 overflow-hidden backdrop-blur-xl shadow-xl transition-all"
+                    className="bg-[#0D0D14] rounded-2xl border border-white/10 overflow-hidden shadow-xl"
                   >
                     {/* Category Header */}
-                    <div className="p-5 sm:p-7 border-b border-white/[0.08] bg-white/[0.02] flex items-start gap-4">
-                      <div
-                        className="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-base shrink-0 shadow-md text-white"
-                        style={{ backgroundColor: category.themeColor }}
-                      >
-                        {category.num}
+                    <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-white/10 bg-white/[0.02] flex items-start sm:items-center justify-between gap-3 sm:gap-4">
+                      <div className="flex items-start sm:items-center gap-3 min-w-0 flex-1">
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center font-mono font-bold text-xs bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 shadow-xs shrink-0 mt-0.5 sm:mt-0">
+                          {category.num}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h2 className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug">
+                            {category.title}
+                          </h2>
+                          <p className="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed break-words">
+                            {category.subtitle}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                          {category.title}
-                        </h2>
-                        <p className="mt-1 text-xs sm:text-sm text-gray-400 font-light leading-relaxed">
-                          {category.subtitle}
-                        </p>
-                      </div>
+                      <span className="text-[11px] font-mono text-zinc-400 shrink-0 hidden md:inline bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
+                        5 Questions
+                      </span>
                     </div>
 
                     {/* Questions List */}
-                    <div className="p-5 sm:p-7 space-y-8">
+                    <div className="divide-y divide-white/5">
                       {category.questions.map((question, qIdx) => {
                         const qNum = qIdx + 1;
                         const key = `${category.id}_${qIdx}`;
                         const currentVal = answers[key];
 
                         return (
-                          <div key={qIdx} className="space-y-3">
-                            <p className="font-semibold text-sm sm:text-base text-gray-200 leading-snug">
-                              <span className="font-mono text-orange-400 mr-2">{category.num}.{qNum}</span>
-                              {question}
-                            </p>
+                          <div 
+                            key={qIdx} 
+                            className="p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3.5 hover:bg-white/[0.015] transition-colors"
+                          >
+                            {/* Question text */}
+                            <div className="flex items-start gap-2.5 max-w-xl min-w-0 flex-1">
+                              <span className="font-mono text-xs font-bold text-[#FFCC00] shrink-0 pt-0.5">
+                                {category.num}.{qNum}
+                              </span>
+                              <p className="text-sm sm:text-base text-zinc-200 leading-relaxed font-normal break-words">
+                                {question}
+                              </p>
+                            </div>
 
-                            {/* 5-Option Likert Scale Buttons */}
-                            <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 pt-1">
-                              {SCALES.map((scale) => {
-                                const isSelected = currentVal === scale.val;
-                                return (
-                                  <button
-                                    key={scale.val}
-                                    type="button"
-                                    onClick={() => handleSelectAnswer(category.id, qIdx, scale.val)}
-                                    className={`py-3 px-1 sm:py-2.5 sm:px-2 rounded-xl text-center text-xs font-semibold transition-all duration-200 cursor-pointer select-none touch-manipulation border ${
-                                      isSelected
-                                        ? 'bg-orange-600 text-white border-orange-500 shadow-[0_4px_16px_rgba(234,88,12,0.4)] scale-[1.02]'
-                                        : 'bg-white/[0.04] text-gray-400 border-white/[0.08] hover:bg-white/[0.08] hover:text-white hover:border-white/20'
-                                    }`}
-                                  >
-                                    <span className="block truncate">{scale.label}</span>
-                                  </button>
-                                );
-                              })}
+                            {/* 5-Option Likert Rating Bar */}
+                            <div className="w-full lg:w-auto shrink-0 pt-1 lg:pt-0">
+                              <div className="grid grid-cols-5 gap-1 bg-black/60 p-1 rounded-xl border border-white/10 w-full sm:w-[320px] lg:w-[320px]">
+                                {SCALES.map((scale) => {
+                                  const isSelected = currentVal === scale.val;
+                                  return (
+                                    <button
+                                      key={scale.val}
+                                      type="button"
+                                      onClick={() => handleSelectAnswer(category.id, qIdx, scale.val)}
+                                      className={`h-10 rounded-lg text-center transition-all cursor-pointer select-none touch-manipulation flex flex-col items-center justify-center ${
+                                        isSelected
+                                          ? 'bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 font-bold shadow-xs'
+                                          : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                                      }`}
+                                      title={`${scale.val} - ${scale.label}`}
+                                    >
+                                      <span className="font-mono text-xs font-bold leading-none">{scale.val}</span>
+                                      <span className={`text-[9px] sm:text-[10px] leading-tight truncate px-0.5 ${isSelected ? 'text-zinc-950 font-bold' : 'text-zinc-400'}`}>
+                                        {scale.label}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
                             </div>
                           </div>
                         );
@@ -617,20 +619,20 @@ export default function AIAudit() {
               {/* ═════════════════════════════════════════════════════════════
                   STICKY BOTTOM PROGRESS BAR & SUBMIT TRIGGER
                   ═════════════════════════════════════════════════════════════ */}
-              <div className="sticky bottom-4 sm:bottom-6 z-40 bg-[#0E0E14]/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.8)] border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="sticky bottom-4 z-40 bg-[#0E0E14]/95 backdrop-blur-xl px-5 py-3.5 sm:px-6 sm:py-4 rounded-2xl shadow-2xl border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
                 
                 {/* Progress Indicators */}
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <div className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-orange-400 shrink-0">
+                <div className="flex items-center gap-3.5 w-full sm:w-auto">
+                  <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-[#FFCC00] shrink-0">
                     {answeredCount}
                   </div>
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-white">
-                      {answeredCount === totalQuestions ? 'All Questions Answered!' : `${answeredCount} of ${totalQuestions} answered`}
+                    <div className="text-xs sm:text-sm font-semibold text-white">
+                      {answeredCount === totalQuestions ? 'All 20 Questions Completed!' : `${answeredCount} of ${totalQuestions} answered`}
                     </div>
-                    <div className="w-32 sm:w-44 h-1.5 bg-white/10 rounded-full mt-1 overflow-hidden">
+                    <div className="w-36 sm:w-48 h-1.5 bg-white/10 rounded-full mt-1.5 overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-orange-500 to-[var(--color-cmf-gold)] rounded-full transition-all duration-300"
+                        className="h-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] rounded-full transition-all duration-300"
                         style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
                       />
                     </div>
@@ -642,10 +644,10 @@ export default function AIAudit() {
                   type="button"
                   disabled={!isComplete}
                   onClick={handleCalculate}
-                  className={`w-full sm:w-auto py-3.5 px-8 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
+                  className={`w-full sm:w-auto h-11 px-7 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                     isComplete
-                      ? 'bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white shadow-[0_8px_30px_rgba(234,88,12,0.45)] cursor-pointer active:scale-95 animate-pulse'
-                      : 'bg-white/[0.06] text-gray-500 border border-white/10 cursor-not-allowed'
+                      ? 'bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 shadow-[0_4px_20px_rgba(255,204,0,0.35)] hover:brightness-110 cursor-pointer active:scale-95'
+                      : 'bg-white/[0.06] text-zinc-500 border border-white/10 cursor-not-allowed'
                   }`}
                 >
                   <span>Calculate My Score</span>

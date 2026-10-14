@@ -2,25 +2,8 @@ import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { PenTool, Mic, Image as ImageIcon } from 'lucide-react';
 import CreativeShowcase from '../components/CreativeShowcase';
-import { Canvas } from '@react-three/fiber';
-import NeuralWeb from '../components/NeuralWeb';
-import { useState, useEffect } from 'react';
 
 export default function MyPenSpeaks() {
-  const [isLowPower, setIsLowPower] = useState(false);
-
-  useEffect(() => {
-    const checkPerformance = () => {
-      const isMobile = window.innerWidth < 768;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isLowCores = (navigator.hardwareConcurrency || 4) < 4;
-      setIsLowPower(isMobile || prefersReducedMotion || isLowCores);
-    };
-    checkPerformance();
-    window.addEventListener('resize', checkPerformance);
-    return () => window.removeEventListener('resize', checkPerformance);
-  }, []);
-
   return (
     <main className="flex-1 flex flex-col w-full pt-20 pb-0">
       <Helmet>
@@ -36,15 +19,6 @@ export default function MyPenSpeaks() {
       <section className="w-full relative px-6 md:px-12 lg:px-16 py-20 lg:py-32 flex flex-col items-center justify-center min-h-[55vh] overflow-hidden bg-[#FAFAFA] border-b border-[#D2D1CF]/60">
          {/* Subtle Ethereal Ambient Wash */}
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FFF0E8] via-[#FAFAFA] to-[#FAFAFA] z-0 pointer-events-none opacity-80" />
-         
-         {!isLowPower && (
-           <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-             <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-               <ambientLight intensity={0.6} />
-               <NeuralWeb />
-             </Canvas>
-           </div>
-         )}
          
          <motion.div
            initial={{ opacity: 0, y: 30 }}

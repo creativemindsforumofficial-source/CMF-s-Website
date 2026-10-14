@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
-import TrustAnchor from '../components/TrustAnchor';
 import CreativeShowcase from '../components/CreativeShowcase';
 import AudacityActionBlock from '../components/AudacityActionBlock';
 
@@ -17,7 +16,6 @@ export default function Home() {
         <meta property="og:description" content="Redefining creativity by instilling the God factor, inspiring a generation via infallible truths, and equipping global creatives." />
       </Helmet>
       <Hero />
-      <TrustAnchor />
       <CreativeShowcase />
       <AudacityActionBlock />
     </main>

@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { name: 'About', href: '/about' },
   { name: 'Our Programs', href: '/programs' },
   { name: 'Creative Archive', href: '/my-pen-speaks' },
-  { name: 'Blog', href: '/blog' },
   { name: 'Newsletter', href: '/newsletter' },
   // Unactivated for now (Preserved, do not delete):
   // { name: 'Meet the Team', href: '/team' },
@@ -61,8 +60,8 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
       <div className="w-full max-w-7xl mx-auto flex justify-center pointer-events-none">
         <div className={`w-full pointer-events-auto rounded-full transition-all duration-300 flex items-center justify-between border ${
           scrolled 
-            ? 'bg-[#121C22]/95 backdrop-blur-xl border-white/20 shadow-[0_12px_36px_rgba(0,0,0,0.5)] py-2 sm:py-2.5 px-4 sm:px-6 md:px-7' 
-            : 'bg-[#121C22]/85 backdrop-blur-xl border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.35)] py-2.5 sm:py-3 px-4 sm:px-6 md:px-7'
+            ? 'bg-black/95 backdrop-blur-xl border-white/20 shadow-[0_12px_36px_rgba(0,0,0,0.7)] py-2 sm:py-2.5 px-4 sm:px-6 md:px-7' 
+            : 'bg-[#050505]/90 backdrop-blur-xl border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2.5 sm:py-3 px-4 sm:px-6 md:px-7'
         }`}>
           
           {/* Brand - Left with High-Contrast Typography */}
@@ -78,8 +77,8 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
                 className="w-full h-full object-contain rounded-lg" 
               />
             </div>
-            <span className="font-sans font-extrabold tracking-tight text-xl sm:text-2xl text-white transition-colors">
-              Creative Minds'<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] ml-1.5 transition-colors">Forum</span>
+            <span className="font-sans font-extrabold tracking-tight text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] transition-colors">
+              CMF
             </span>
           </Link>
 
@@ -181,7 +180,7 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 h-dvh bg-[#0E171D]/98 backdrop-blur-2xl z-40 flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto border-b border-white/10 pointer-events-auto text-white"
+            className="fixed inset-0 h-dvh bg-black/98 backdrop-blur-2xl z-40 flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto border-b border-white/10 pointer-events-auto text-white"
           >
             {/* Ambient Yellow Background Glow */}
             <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-80 h-80 bg-[#FFCC00]/10 blur-[120px] pointer-events-none rounded-full" />
@@ -190,8 +189,8 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
             <div className="w-full max-w-md mx-auto flex items-center justify-between pb-5 border-b border-white/10 relative z-10 shrink-0">
               <div className="flex items-center gap-2.5">
                 <img src="/cmf_logo.jpg" alt="CMF Logo" className="w-8 h-8 rounded-lg object-contain border border-white/15" />
-                <span className="font-sans font-extrabold text-base text-white">
-                  Creative Minds'<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] ml-1">Forum</span>
+                <span className="font-sans font-extrabold text-lg text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
+                  CMF
                 </span>
               </div>
               <button

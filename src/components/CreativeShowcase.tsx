@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Compass } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-import NeuralWeb from './NeuralWeb';
+
 
 interface ShowcaseItem {
   id: number;
@@ -91,7 +90,6 @@ export default function CreativeShowcase() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [cardSpread, setCardSpread] = useState(320);
-  const [isLowPower, setIsLowPower] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartXRef = useRef(0);
 
@@ -103,17 +101,12 @@ export default function CreativeShowcase() {
   const scrollLeftRef = useRef(0);
 
   useEffect(() => {
-    const handleResizeOrCheck = () => {
+    const handleResize = () => {
       setCardSpread(window.innerWidth < 1024 ? window.innerWidth * 0.55 : window.innerWidth * 0.65);
-      
-      const isMobile = window.innerWidth < 768;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isLowCores = (navigator.hardwareConcurrency || 4) < 4;
-      setIsLowPower(isMobile || prefersReducedMotion || isLowCores);
     };
-    handleResizeOrCheck();
-    window.addEventListener('resize', handleResizeOrCheck);
-    return () => window.removeEventListener('resize', handleResizeOrCheck);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Desktop Prev / Next
@@ -244,14 +237,7 @@ export default function CreativeShowcase() {
 
   return (
     <section className="w-full py-20 md:py-32 bg-[#FAFAFA] border-t border-[#D2D1CF]/50 relative flex flex-col items-center overflow-hidden">
-      {!isLowPower && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-            <ambientLight intensity={0.6} />
-            <NeuralWeb />
-          </Canvas>
-        </div>
-      )}
+
 
       {/* Header Badge */}
       <div className="flex items-center gap-4 mb-10 md:mb-16 relative z-20">
@@ -346,56 +332,13 @@ export default function CreativeShowcase() {
           })}
         </div>
 
-        {/* Mobile Navigation Controls & Dots */}
-        <div className="w-full max-w-sm px-6 mt-6 flex items-center justify-between">
-          <button
-            onClick={() => scrollMobileTo(activeMobileIndex - 1)}
-            disabled={activeMobileIndex === 0}
-            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all ${
-              activeMobileIndex === 0
-                ? 'border-zinc-200 text-zinc-300 cursor-not-allowed bg-zinc-50'
-                : 'border-zinc-200 bg-white text-[#16232B] active:scale-90 active:border-[#FFCC00] active:text-[#FFCC00] hover:bg-[#FFCC00]/10 hover:text-[#FFCC00] hover:border-[#FFCC00] shadow-xs'
-            }`}
-            aria-label="Previous expression"
-          >
-            <ChevronLeft size={20} />
-          </button>
-
-          {/* Dots Indicator */}
-          <div className="flex items-center gap-1.5 max-w-[200px] overflow-hidden px-1 py-1">
-            {SHOWCASE_ITEMS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollMobileTo(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === activeMobileIndex 
-                    ? 'w-6 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] shadow-[0_2px_8px_rgba(255,204,0,0.5)]' 
-                    : 'w-1.5 bg-zinc-300 hover:bg-zinc-400'
-                }`}
-                aria-label={`Go to expression ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={() => scrollMobileTo(activeMobileIndex + 1)}
-            disabled={activeMobileIndex === SHOWCASE_ITEMS.length - 1}
-            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all ${
-              activeMobileIndex === SHOWCASE_ITEMS.length - 1
-                ? 'border-zinc-200 text-zinc-300 cursor-not-allowed bg-zinc-50'
-                : 'border-zinc-200 bg-white text-[#16232B] active:scale-90 active:border-[#FFCC00] active:text-[#FFCC00] hover:bg-[#FFCC00]/10 hover:text-[#FFCC00] hover:border-[#FFCC00] shadow-xs'
-            }`}
-            aria-label="Next expression"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
         {/* Scroll hint */}
-        <div className="flex items-center gap-2 mt-3 text-[11px] font-mono text-[#60625F] tracking-wider uppercase select-none">
+        <div className="flex items-center gap-2 mt-4 text-[11px] font-mono text-[#60625F] tracking-wider uppercase select-none">
           <Compass size={12} className="text-[#FFCC00] animate-spin" style={{ animationDuration: '8s' }} />
           <span>Swipe left or right to explore</span>
         </div>
+
+
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════════
@@ -514,7 +457,7 @@ export default function CreativeShowcase() {
                 damping: 30, 
                 mass: 0.5 
               }}
-              className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#16232B]/95 backdrop-blur-xl border border-[#FFCC00]/50 rounded-full flex items-center justify-center pointer-events-none z-50 text-[#FFCC00] shadow-[0_8px_25px_rgba(255,204,0,0.25)] gap-2 select-none"
+              className="absolute top-0 left-0 w-[120px] h-[60px] bg-black/95 backdrop-blur-xl border border-[#FFCC00]/50 rounded-full flex items-center justify-center pointer-events-none z-50 text-[#FFCC00] shadow-[0_8px_25px_rgba(255,204,0,0.25)] gap-2 select-none"
             >
               {isLeftHalf ? (
                 <>
@@ -532,44 +475,6 @@ export default function CreativeShowcase() {
         </AnimatePresence>
       </div>
 
-      {/* Desktop Bottom Controls & Dots */}
-      <div className="hidden lg:flex items-center gap-6 mt-8 relative z-20">
-        <button
-          onClick={handlePrev}
-          className="w-10 h-10 rounded-full border border-zinc-200 bg-white text-[#16232B] flex items-center justify-center hover:border-[#FFCC00] hover:text-[#FFCC00] hover:bg-[#FFCC00]/10 active:scale-95 transition-all shadow-xs"
-          aria-label="Previous card"
-        >
-          <ChevronLeft size={18} />
-        </button>
-
-        <div className="flex items-center gap-2">
-          {SHOWCASE_ITEMS.map((_, i) => {
-            const ITEM_COUNT = SHOWCASE_ITEMS.length;
-            const currentIndex = ((activeIndex % ITEM_COUNT) + ITEM_COUNT) % ITEM_COUNT;
-            const isCurrent = i === currentIndex;
-            return (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  isCurrent 
-                    ? 'w-8 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] shadow-[0_2px_8px_rgba(255,204,0,0.5)]' 
-                    : 'w-2 bg-zinc-300 hover:bg-zinc-400'
-                }`}
-                aria-label={`Jump to item ${i + 1}`}
-              />
-            );
-          })}
-        </div>
-
-        <button
-          onClick={handleNext}
-          className="w-10 h-10 rounded-full border border-zinc-200 bg-white text-[#16232B] flex items-center justify-center hover:border-[#FFCC00] hover:text-[#FFCC00] hover:bg-[#FFCC00]/10 active:scale-95 transition-all shadow-xs"
-          aria-label="Next card"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
     </section>
   );
 }

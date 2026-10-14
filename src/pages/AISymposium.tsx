@@ -94,7 +94,7 @@ export default function AISymposium() {
             <span>Virtual & Select Physical Hubs</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <Clock size={14} className="text-emerald-400" />
+            <Clock size={14} className="text-[#FFCC00]" />
             <span>Keynotes • Panels • Demos</span>
           </div>
         </div>

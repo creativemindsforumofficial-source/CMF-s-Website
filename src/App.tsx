@@ -17,8 +17,6 @@ import Audacity from './pages/Audacity';
 import About from './pages/About';
 import MyPenSpeaks from './pages/MyPenSpeaks';
 import Newsletter from './pages/Newsletter';
-import BlogPost from './pages/BlogPost';
-import Blog from './pages/Blog';
 import Team from './pages/Team';
 import SubTeams from './pages/SubTeams';
 import AISymposium from './pages/AISymposium';
@@ -45,7 +43,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <CustomScroller />
-      <div className="min-h-screen bg-white text-[#0A0A0A] selection:bg-[#FF5B04] selection:text-white flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
+      <div className="min-h-screen bg-white text-[#0A0A0A] selection:bg-[#FFCC00] selection:text-zinc-950 flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
         <Helmet>
           <title>Creative Minds' Forum</title>
           <meta name="description" content="Redefining creativity by instilling the God factor, inspiring a generation via infallible truths, and equipping global creatives with tech and resilience." />
@@ -63,8 +61,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/my-pen-speaks" element={<MyPenSpeaks />} />
           <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/team" element={<Team />} />
           <Route path="/sub-teams" element={<SubTeams />} />
           <Route path="/programs" element={<Programs />} />

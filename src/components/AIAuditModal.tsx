@@ -68,13 +68,13 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
               <X className="w-5 h-5" />
             </button>
 
-            {/* ── Ambient Volumetric Backlight (Mimicking reference glowing glow) ── */}
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-gradient-to-b from-[#FF5722]/50 via-[#FF9800]/30 to-transparent blur-[85px] pointer-events-none -z-10" />
+            {/* ── Ambient Volumetric Backlight (Yellow-Gold Radiant Glow) ── */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-gradient-to-b from-[#FFE066]/35 via-[#FFCC00]/20 to-transparent blur-[85px] pointer-events-none -z-10" />
 
             {/* Floating Spark Dust Particles */}
-            <div className="absolute top-8 left-6 w-1.5 h-1.5 rounded-full bg-amber-300/80 blur-[0.5px] animate-pulse" />
-            <div className="absolute top-16 right-8 w-1 h-1 rounded-full bg-orange-300/70 blur-[0.5px] animate-ping" />
-            <div className="absolute top-32 left-10 w-2 h-2 rounded-full bg-yellow-200/50 blur-[1px] animate-pulse" />
+            <div className="absolute top-8 left-6 w-1.5 h-1.5 rounded-full bg-[#FFE066] blur-[0.5px] animate-pulse" />
+            <div className="absolute top-16 right-8 w-1 h-1 rounded-full bg-[#FFCC00] blur-[0.5px] animate-ping" />
+            <div className="absolute top-32 left-10 w-2 h-2 rounded-full bg-[#E69D00]/60 blur-[1px] animate-pulse" />
 
             {/* Envelope Back Flap (Interior Dark Liner) */}
             <div className="w-[90%] sm:w-[92%] h-40 bg-[#0F0F14] rounded-t-3xl border-t border-x border-white/10 shadow-2xl relative -mb-28 z-0">
@@ -88,7 +88,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
             </div>
 
             {/* ═══════════════════════════════════════════════════════════════
-                THE GLOWING RISING CARD (Freestyled with CMF & AI Audit copy)
+                THE GLOWING RISING CARD (Yellow Gold & Obsidian Gradient)
                 ═══════════════════════════════════════════════════════════════ */}
             <motion.div
               initial={{ y: 90, scale: 0.94, opacity: 0 }}
@@ -96,34 +96,34 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
               exit={{ y: 60, scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative z-10 w-[92%] sm:w-[94%] rounded-3xl p-6 sm:p-7 text-center shadow-[0_25px_70px_rgba(255,91,4,0.4),0_0_50px_rgba(7,80,86,0.3)] overflow-hidden cursor-default transition-all"
+              className="relative z-10 w-[92%] sm:w-[94%] rounded-3xl p-6 sm:p-7 text-center shadow-[0_25px_70px_rgba(255,204,0,0.25),0_0_50px_rgba(0,0,0,0.8)] border border-[#FFCC00]/30 overflow-hidden cursor-default transition-all"
               style={{
-                background: 'linear-gradient(155deg, #FF5B04 0%, #D94800 50%, #075056 100%)',
+                background: 'linear-gradient(155deg, #18181B 0%, #0F0F12 50%, #292005 100%)',
               }}
             >
               {/* Delicate Corner Photo-Mount Brackets (matching reference) */}
-              <span className="absolute top-3.5 left-4 text-white/50 font-mono text-sm leading-none select-none">⌜</span>
-              <span className="absolute top-3.5 right-4 text-white/50 font-mono text-sm leading-none select-none">⌝</span>
-              <span className="absolute bottom-3.5 left-4 text-white/50 font-mono text-sm leading-none select-none">⌞</span>
-              <span className="absolute bottom-3.5 right-4 text-white/50 font-mono text-sm leading-none select-none">⌟</span>
+              <span className="absolute top-3.5 left-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌜</span>
+              <span className="absolute top-3.5 right-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌝</span>
+              <span className="absolute bottom-3.5 left-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌞</span>
+              <span className="absolute bottom-3.5 right-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌟</span>
 
               {/* Inner Card Subtle Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-white/10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/5 pointer-events-none" />
 
               {/* Top Brand Tag */}
               <div className="relative z-10 flex items-center justify-center gap-1.5 text-white/95 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-yellow-200" />
+                <Sparkles className="w-3.5 h-3.5 text-[#FFCC00]" />
                 <span>Creative Minds' Forum</span>
               </div>
 
-              {/* Headline (Freestyled matching the reference tone) */}
+              {/* Headline */}
               <h3 className="relative z-10 text-2xl sm:text-3xl font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
                 The wait is over.<br />
-                <span className="text-yellow-100 font-extrabold">Your 4D AI Audit is here.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] font-extrabold">Your 4D AI Audit is here.</span>
               </h3>
 
               {/* Subtext Body */}
-              <p className="relative z-10 mt-3 text-xs sm:text-sm text-white/95 font-light leading-relaxed max-w-xs mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
+              <p className="relative z-10 mt-3 text-xs sm:text-sm text-zinc-300 font-light leading-relaxed max-w-xs mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
                 Discover your vulnerability to the creative gig economy. Answer 20 questions to find out if you are a <strong className="font-semibold text-white">Commodity Laborer</strong> or a <strong className="font-semibold text-white">Systems Architect</strong>.
               </p>
 
@@ -132,7 +132,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
                 {DIMENSIONS.map((dim) => (
                   <span
                     key={dim.name}
-                    className="px-2.5 py-0.5 rounded-full bg-black/25 backdrop-blur-xs border border-white/25 text-[10px] font-mono text-white/95 shadow-xs"
+                    className="px-2.5 py-0.5 rounded-full bg-white/5 backdrop-blur-xs border border-white/15 text-[10px] font-mono text-[#FFE066] shadow-xs"
                   >
                     {dim.name}
                   </span>
@@ -147,35 +147,35 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="relative z-10 mt-3.5 p-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 text-left space-y-1.5 text-[11px] text-white overflow-hidden"
+                    className="relative z-10 mt-3.5 p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 text-left space-y-1.5 text-[11px] text-white overflow-hidden"
                   >
-                    <div className="font-mono text-[10px] text-yellow-200 font-bold uppercase tracking-wider mb-1">
+                    <div className="font-mono text-[10px] text-[#FFCC00] font-bold uppercase tracking-wider mb-1">
                       The 4 Pillars of AI Fluency:
                     </div>
                     {DIMENSIONS.map((d, i) => (
                       <div key={d.name} className="flex items-center justify-between">
                         <span className="font-semibold text-white">0{i+1}. {d.name}</span>
-                        <span className="text-yellow-200/90 text-[10px] font-mono">{d.desc}</span>
+                        <span className="text-[#FFE066] text-[10px] font-mono">{d.desc}</span>
                       </div>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
 
-              {/* ── CTA Button on the Glowing Card (Strictly NO REDIRECT) ── */}
+              {/* ── CTA Button on the Glowing Card ── */}
               <div className="relative z-10 mt-5 flex flex-col items-center">
                 <button
                   type="button"
                   onClick={handleCardCta}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-black/90 hover:bg-black text-white font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.65)] active:scale-95 flex items-center justify-center gap-2 group cursor-pointer border border-white/25 hover:border-white/40"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_8px_25px_rgba(255,204,0,0.35)] hover:shadow-[0_12px_35px_rgba(255,204,0,0.55)] active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>{isRevealed ? 'Hide Framework' : 'Claim Your Diagnosis'}</span>
-                  <ArrowRight className="w-4 h-4 text-yellow-300 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 text-zinc-950 transition-transform group-hover:translate-x-1" />
                 </button>
 
                 {/* Status Notice Indicator */}
                 <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] font-mono text-white/90">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
                   <span>
                     {showStatusNotice 
                       ? 'Preview active • Official diagnostic launch arriving shortly' 

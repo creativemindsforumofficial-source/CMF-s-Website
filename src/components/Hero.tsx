@@ -7,20 +7,20 @@ export default function Hero() {
   const [imgSrc, setImgSrc] = useState('/CMF-Hero-1.jpg');
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0E171D] text-white pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24 flex flex-col items-center justify-center">
-      {/* ── CMF Hero Image Background Overlay (Dark Theme for Maximum Yellow Pop) ── */}
+    <section className="relative w-full overflow-hidden bg-[#050505] text-white pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24 flex flex-col items-center justify-center">
+      {/* ── CMF Hero Image Background Overlay (Pure Deep Dark Theme for Maximum Yellow Pop) ── */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
         <img
           src={imgSrc}
           onError={() => setImgSrc('/CMF-Hero-1.jpg')}
           alt="Creative Minds' Forum Community"
-          className="w-full h-full object-cover object-center opacity-30 sm:opacity-35 filter contrast-125 brightness-90 saturate-110"
+          className="w-full h-full object-cover object-center opacity-65 sm:opacity-75 filter contrast-115 brightness-95 saturate-110"
         />
-        {/* Deep rich dark gradient scrim */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0E171D]/90 via-[#0E171D]/80 to-[#0E171D]" />
+        {/* Balanced dark gradient scrim that keeps image visible while dark enough for yellow text pop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-[#050505]/95" />
 
         {/* Radiant subtle yellow glow at center to make text pop */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_35%,rgba(255,204,0,0.10),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_35%,rgba(255,204,0,0.14),transparent_70%)] pointer-events-none" />
 
         {/* Subtle grid dot pattern */}
         <div
@@ -75,28 +75,28 @@ export default function Hero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.16, duration: 0.45 }}
-            className="flex items-center gap-2.5 sm:gap-3 mt-1 px-3.5 py-1.5 rounded-full bg-[#16232B]/85 border border-white/15 shadow-sm backdrop-blur-md"
+            className="flex items-center gap-2.5 sm:gap-3 mt-1 px-3.5 py-1.5 rounded-full bg-black/80 border border-white/15 shadow-sm backdrop-blur-md"
           >
             <div className="flex -space-x-2">
               <img
                 src="/Arise.jpg"
                 alt="Community Creator"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#16232B] object-cover shadow-xs"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black object-cover shadow-xs"
               />
               <img
                 src="/Doris.jpg"
                 alt="Community Creator"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#16232B] object-cover shadow-xs"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black object-cover shadow-xs"
               />
               <img
                 src="/Gideon.jpg"
                 alt="Community Creator"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#16232B] object-cover shadow-xs"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black object-cover shadow-xs"
               />
               <img
                 src="/RAD.jpg"
                 alt="Community Creator"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#16232B] object-cover shadow-xs"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black object-cover shadow-xs"
               />
             </div>
             <span className="text-xs sm:text-sm text-zinc-300 font-medium">
@@ -143,7 +143,7 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
         className="w-full max-w-5xl mx-auto mt-10 sm:mt-12 md:mt-16 px-4 sm:px-6 relative z-10"
       >
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-[#16232B]/90 p-2 sm:p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-black/90 p-2 sm:p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
           <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full rounded-xl sm:rounded-2xl overflow-hidden group bg-zinc-900">
             <img
               src={imgSrc}

@@ -5,13 +5,12 @@ const USUAL_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'About CMF', path: '/about' },
   { name: 'Our Programs', path: '/programs' },
-  { name: 'Editorial Blog', path: '/blog' },
   { name: 'Join Community', path: '/join' },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#121C22] border-t border-white/10 pt-16 pb-10 mt-auto z-10 relative text-white">
+    <footer className="bg-[#050505] border-t border-white/10 pt-16 pb-10 mt-auto z-10 relative text-white">
       <div className="w-full px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-16">
           {/* Left: Brand & Mission */}

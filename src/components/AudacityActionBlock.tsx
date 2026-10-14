@@ -57,7 +57,7 @@ export default function AudacityActionBlock() {
           >
             <Link 
               to="/audacity"
-              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto min-h-[48px] px-8 py-3.5 bg-[#16232B] hover:bg-black text-white font-bold rounded-full text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto min-h-[48px] px-8 py-3.5 bg-zinc-950 hover:bg-black text-white font-bold rounded-full text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
             >
               <Calendar className="w-4 h-4 text-[#FFCC00]" />
               <span>Secure Your Seat (June 20)</span>
@@ -86,7 +86,7 @@ export default function AudacityActionBlock() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="relative z-10 text-center p-6 flex flex-col items-center justify-center"
           >
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#FF5B04] mb-1">Annual Convergence</span>
+            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#FFCC00] mb-1">Annual Convergence</span>
             <h3 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
               AUDACITY '26
             </h3>
