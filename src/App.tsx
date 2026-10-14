@@ -45,13 +45,13 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <CustomScroller />
-      <div className="min-h-screen bg-[var(--color-cmf-black)] text-[var(--color-cmf-white)] selection:bg-[var(--color-cmf-accent)] selection:text-white flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
+      <div className="min-h-screen bg-white text-[#0A0A0A] selection:bg-[#FF5B04] selection:text-white flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
         <Helmet>
           <title>Creative Minds' Forum</title>
           <meta name="description" content="Redefining creativity by instilling the God factor, inspiring a generation via infallible truths, and equipping global creatives with tech and resilience." />
           <meta property="og:site_name" content="Creative Minds' Forum" />
           <meta property="og:type" content="website" />
-          <meta name="theme-color" content="#000000" />
+          <meta name="theme-color" content="#ffffff" />
         </Helmet>
         
         <Navbar onOpenAuditModal={() => setIsAuditModalOpen(true)} />

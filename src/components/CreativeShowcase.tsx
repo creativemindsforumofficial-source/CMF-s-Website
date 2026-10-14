@@ -243,11 +243,11 @@ export default function CreativeShowcase() {
     : false;
 
   return (
-    <section className="w-full py-20 md:py-32 bg-[#050505] border-t border-white/5 relative flex flex-col items-center overflow-hidden">
+    <section className="w-full py-20 md:py-32 bg-[#FAFAFA] border-t border-[#D2D1CF]/50 relative flex flex-col items-center overflow-hidden">
       {!isLowPower && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
           <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={0.6} />
             <NeuralWeb />
           </Canvas>
         </div>
@@ -255,11 +255,11 @@ export default function CreativeShowcase() {
 
       {/* Header Badge */}
       <div className="flex items-center gap-4 mb-10 md:mb-16 relative z-20">
-        <span className="w-8 h-[1px] bg-[var(--color-cmf-gold)]" />
-        <span className="text-[var(--color-cmf-gold)] font-mono text-xs font-bold tracking-[0.2em] uppercase">
+        <span className="w-8 h-[2px] bg-gradient-to-r from-transparent to-[#FFCC00]" />
+        <span className="font-mono text-xs font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
           curated expressions
         </span>
-        <span className="w-8 h-[1px] bg-[var(--color-cmf-gold)]" />
+        <span className="w-8 h-[2px] bg-gradient-to-r from-[#FFCC00] to-transparent" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════════
@@ -286,15 +286,15 @@ export default function CreativeShowcase() {
               <div
                 key={item.id}
                 onClick={() => scrollMobileTo(index)}
-                className={`shrink-0 snap-center w-[85vw] max-w-[340px] rounded-3xl overflow-hidden bg-[#0d0d12] border transition-all duration-300 flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.85)] ${
+                className={`shrink-0 snap-center w-[85vw] max-w-[340px] rounded-3xl overflow-hidden bg-white border transition-all duration-300 flex flex-col shadow-[0_12px_36px_rgba(22,35,43,0.08)] ${
                   isCardActive
-                    ? 'border-[var(--color-cmf-gold)]/70 ring-1 ring-[var(--color-cmf-gold)]/30 scale-[1.01]'
-                    : 'border-white/10 opacity-75'
+                    ? 'border-[#FFCC00] ring-2 ring-[#FFCC00]/40 scale-[1.01]'
+                    : 'border-[#D2D1CF]/60 opacity-80'
                 }`}
                 style={{ height: '460px' }}
               >
                 {/* Image Top (56%) */}
-                <div className="w-full h-[56%] relative overflow-hidden bg-black">
+                <div className="w-full h-[56%] relative overflow-hidden bg-zinc-100">
                   <img 
                     src={item.image} 
                     alt={item.title} 
@@ -303,40 +303,40 @@ export default function CreativeShowcase() {
                   />
                   {/* Category Tag Badge */}
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="text-[10px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white shadow-sm uppercase">
+                    <span className="text-[10px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-full bg-[#E4EEF0] backdrop-blur-md border border-[#075056]/20 text-[#075056] shadow-xs uppercase">
                       {item.tag}
                     </span>
                   </div>
                   {/* Number Badge */}
                   <div className="absolute top-4 right-4 z-10">
-                    <span className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-full bg-[var(--color-cmf-gold)] text-black shadow-sm">
+                    <span className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 shadow-xs">
                       #{item.id < 10 ? `0${item.id}` : item.id}
                     </span>
                   </div>
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0d] via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Typography Bottom (44%) */}
-                <div className="w-full h-[44%] p-5 sm:p-6 bg-[#0a0a0d] flex flex-col justify-between border-t border-white/5 relative z-10">
+                <div className="w-full h-[44%] p-5 sm:p-6 bg-white flex flex-col justify-between border-t border-zinc-100 relative z-10">
                   <div>
-                    <span className="text-[var(--color-cmf-gold)] font-mono text-[11px] font-bold tracking-[0.2em] uppercase block mb-1">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#E69D00] font-mono text-[11px] font-bold tracking-[0.2em] uppercase block mb-1">
                       NO. {item.id < 10 ? `0${item.id}` : item.id}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#0A0A0A] tracking-tight leading-snug mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-gray-400 font-light leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#60625F] font-normal leading-relaxed line-clamp-2">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs">
-                    <span className="text-gray-400 font-mono text-[11px] flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-cmf-gold)] animate-pulse" />
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between text-xs">
+                    <span className="text-[#60625F] font-mono text-[11px] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
                       Curated Piece
                     </span>
-                    <span className="text-[var(--color-cmf-gold)] font-medium text-xs font-mono">
+                    <span className="text-[#075056] font-bold text-xs font-mono">
                       {index + 1} / {SHOWCASE_ITEMS.length}
                     </span>
                   </div>
@@ -353,8 +353,8 @@ export default function CreativeShowcase() {
             disabled={activeMobileIndex === 0}
             className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all ${
               activeMobileIndex === 0
-                ? 'border-white/5 text-white/20 cursor-not-allowed bg-black/20'
-                : 'border-white/20 bg-white/5 text-white active:scale-90 active:border-[var(--color-cmf-gold)] active:text-[var(--color-cmf-gold)] hover:bg-white/10'
+                ? 'border-zinc-200 text-zinc-300 cursor-not-allowed bg-zinc-50'
+                : 'border-zinc-200 bg-white text-[#16232B] active:scale-90 active:border-[#FFCC00] active:text-[#FFCC00] hover:bg-[#FFCC00]/10 hover:text-[#FFCC00] hover:border-[#FFCC00] shadow-xs'
             }`}
             aria-label="Previous expression"
           >
@@ -369,8 +369,8 @@ export default function CreativeShowcase() {
                 onClick={() => scrollMobileTo(i)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   i === activeMobileIndex 
-                    ? 'w-6 bg-[var(--color-cmf-gold)] shadow-[0_0_10px_rgba(255,204,0,0.6)]' 
-                    : 'w-1.5 bg-white/20 hover:bg-white/40'
+                    ? 'w-6 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] shadow-[0_2px_8px_rgba(255,204,0,0.5)]' 
+                    : 'w-1.5 bg-zinc-300 hover:bg-zinc-400'
                 }`}
                 aria-label={`Go to expression ${i + 1}`}
               />
@@ -382,8 +382,8 @@ export default function CreativeShowcase() {
             disabled={activeMobileIndex === SHOWCASE_ITEMS.length - 1}
             className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all ${
               activeMobileIndex === SHOWCASE_ITEMS.length - 1
-                ? 'border-white/5 text-white/20 cursor-not-allowed bg-black/20'
-                : 'border-white/20 bg-white/5 text-white active:scale-90 active:border-[var(--color-cmf-gold)] active:text-[var(--color-cmf-gold)] hover:bg-white/10'
+                ? 'border-zinc-200 text-zinc-300 cursor-not-allowed bg-zinc-50'
+                : 'border-zinc-200 bg-white text-[#16232B] active:scale-90 active:border-[#FFCC00] active:text-[#FFCC00] hover:bg-[#FFCC00]/10 hover:text-[#FFCC00] hover:border-[#FFCC00] shadow-xs'
             }`}
             aria-label="Next expression"
           >
@@ -392,8 +392,8 @@ export default function CreativeShowcase() {
         </div>
 
         {/* Scroll hint */}
-        <div className="flex items-center gap-2 mt-3 text-[11px] font-mono text-gray-500 tracking-wider uppercase select-none">
-          <Compass size={12} className="text-[var(--color-cmf-gold)] animate-spin" style={{ animationDuration: '8s' }} />
+        <div className="flex items-center gap-2 mt-3 text-[11px] font-mono text-[#60625F] tracking-wider uppercase select-none">
+          <Compass size={12} className="text-[#FFCC00] animate-spin" style={{ animationDuration: '8s' }} />
           <span>Swipe left or right to explore</span>
         </div>
       </div>
@@ -437,7 +437,7 @@ export default function CreativeShowcase() {
                   x: offset * cardSpread,
                   y: isCenter ? 0 : 35,
                   scale: isCenter ? 1 : 0.9,
-                  opacity: isCenter ? 1 : 0.55,
+                  opacity: isCenter ? 1 : 0.6,
                   zIndex: isCenter ? 50 : 40 - distance,
                   rotateY: isCenter ? 0 : (offset > 0 ? -14 : 14),
                   z: isCenter ? 0 : -60
@@ -447,41 +447,41 @@ export default function CreativeShowcase() {
                   duration: 0.8,
                   ease: [0.25, 1, 0.5, 1]
                 }}
-                className="absolute w-[62vw] max-w-[1020px] aspect-video rounded-3xl overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.95)] bg-[#0d0d12] border border-white/10 flex flex-row"
+                className="absolute w-[62vw] max-w-[1020px] aspect-video rounded-3xl overflow-hidden shadow-[0_30px_70px_rgba(22,35,43,0.12)] bg-white border border-[#D2D1CF]/60 flex flex-row"
               >
                 {/* Typography Half */}
-                <div className="w-[45%] h-full p-8 lg:p-12 flex flex-col justify-between bg-[#0a0a0d] relative z-10 border-r border-white/5">
+                <div className="w-[45%] h-full p-8 lg:p-12 flex flex-col justify-between bg-white relative z-10 border-r border-zinc-100">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[var(--color-cmf-gold)] font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] to-[#E69D00] font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
                         NO. {item.id < 10 ? `0${item.id}` : item.id}
                       </span>
-                      <span className="text-white/20">•</span>
-                      <span className="text-white/50 font-mono text-xs tracking-wider uppercase">
+                      <span className="text-[#D2D1CF]">•</span>
+                      <span className="text-[#075056] bg-[#E4EEF0] px-2.5 py-0.5 rounded-full font-mono text-xs font-bold tracking-wider uppercase">
                         {item.tag}
                       </span>
                     </div>
-                    <h3 className="text-3xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-4">
+                    <h3 className="text-3xl lg:text-5xl font-extrabold text-[#0A0A0A] tracking-tight leading-[1.1] mb-4">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-light leading-relaxed text-sm lg:text-base">
+                    <p className="text-[#60625F] font-normal leading-relaxed text-sm lg:text-base">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-gray-400">
+                  <div className="flex items-center justify-between pt-6 border-t border-zinc-100 text-xs font-mono text-[#60625F]">
                     <span className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[var(--color-cmf-gold)] animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-[#FFCC00] animate-pulse" />
                       Curated Showcase
                     </span>
-                    <span className="text-white font-semibold">
+                    <span className="text-[#075056] font-bold">
                       {index + 1} / {ITEM_COUNT}
                     </span>
                   </div>
                 </div>
 
                 {/* Image Half */}
-                <div className="w-[55%] h-full relative overflow-hidden bg-black">
+                <div className="w-[55%] h-full relative overflow-hidden bg-zinc-100">
                   <img 
                     src={item.image} 
                     alt={item.title} 
@@ -489,7 +489,7 @@ export default function CreativeShowcase() {
                     draggable={false}
                   />
                   {/* Subtle overlay */}
-                  <div className={`absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-700 ${isCenter ? 'opacity-0' : 'opacity-100'}`} />
+                  <div className={`absolute inset-0 bg-black/25 pointer-events-none transition-opacity duration-700 ${isCenter ? 'opacity-0' : 'opacity-100'}`} />
                 </div>
               </motion.div>
             );
@@ -514,7 +514,7 @@ export default function CreativeShowcase() {
                 damping: 30, 
                 mass: 0.5 
               }}
-              className="absolute top-0 left-0 w-[120px] h-[60px] bg-black/50 backdrop-blur-xl border border-[var(--color-cmf-gold)]/40 rounded-full flex items-center justify-center pointer-events-none z-50 text-[var(--color-cmf-gold)] shadow-[0_0_25px_rgba(255,204,0,0.3)] gap-2 select-none"
+              className="absolute top-0 left-0 w-[120px] h-[60px] bg-[#16232B]/95 backdrop-blur-xl border border-[#FFCC00]/50 rounded-full flex items-center justify-center pointer-events-none z-50 text-[#FFCC00] shadow-[0_8px_25px_rgba(255,204,0,0.25)] gap-2 select-none"
             >
               {isLeftHalf ? (
                 <>
@@ -536,7 +536,7 @@ export default function CreativeShowcase() {
       <div className="hidden lg:flex items-center gap-6 mt-8 relative z-20">
         <button
           onClick={handlePrev}
-          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:border-[var(--color-cmf-gold)] hover:text-[var(--color-cmf-gold)] active:scale-95 transition-all shadow-sm"
+          className="w-10 h-10 rounded-full border border-zinc-200 bg-white text-[#16232B] flex items-center justify-center hover:border-[#FFCC00] hover:text-[#FFCC00] hover:bg-[#FFCC00]/10 active:scale-95 transition-all shadow-xs"
           aria-label="Previous card"
         >
           <ChevronLeft size={18} />
@@ -553,8 +553,8 @@ export default function CreativeShowcase() {
                 onClick={() => setActiveIndex(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   isCurrent 
-                    ? 'w-8 bg-[var(--color-cmf-gold)] shadow-[0_0_12px_rgba(255,204,0,0.7)]' 
-                    : 'w-2 bg-white/25 hover:bg-white/50'
+                    ? 'w-8 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] shadow-[0_2px_8px_rgba(255,204,0,0.5)]' 
+                    : 'w-2 bg-zinc-300 hover:bg-zinc-400'
                 }`}
                 aria-label={`Jump to item ${i + 1}`}
               />
@@ -564,7 +564,7 @@ export default function CreativeShowcase() {
 
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:border-[var(--color-cmf-gold)] hover:text-[var(--color-cmf-gold)] active:scale-95 transition-all shadow-sm"
+          className="w-10 h-10 rounded-full border border-zinc-200 bg-white text-[#16232B] flex items-center justify-center hover:border-[#FFCC00] hover:text-[#FFCC00] hover:bg-[#FFCC00]/10 active:scale-95 transition-all shadow-xs"
           aria-label="Next card"
         >
           <ChevronRight size={18} />

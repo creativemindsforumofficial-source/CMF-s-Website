@@ -295,7 +295,7 @@ export default function Audacity() {
 
               <button 
                 type="submit"
-                className="mt-6 w-full group relative inline-flex items-center justify-center px-8 py-5 font-bold text-black bg-[var(--color-cmf-gold)] transition-all hover:brightness-110 overflow-hidden text-center rounded-md shadow-[0_0_15px_rgba(255,204,0,0.4)] duration-300"
+                className="mt-6 w-full group relative inline-flex items-center justify-center px-8 py-5 font-bold text-zinc-950 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 transition-all overflow-hidden text-center rounded-md shadow-[0_4px_20px_rgba(255,204,0,0.45)] duration-300"
               >
                 <span className="tracking-[0.2em] uppercase text-sm flex items-center gap-3">
                   Lock In My Seat <Check size={18} className="group-hover:scale-110 transition-transform" />

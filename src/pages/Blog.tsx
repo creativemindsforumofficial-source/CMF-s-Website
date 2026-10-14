@@ -113,8 +113,8 @@ export default function Blog() {
                 className={`
                   px-6 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 backdrop-blur-md whitespace-nowrap
                   ${activeCategory === category 
-                    ? 'bg-[var(--color-cmf-gold)] text-black shadow-[0_0_20px_rgba(255,204,0,0.4)]' 
-                    : 'bg-zinc-100 dark:bg-zinc-900/60 text-black dark:text-white border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30'}
+                    ? 'bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 shadow-[0_2px_15px_rgba(255,204,0,0.45)]' 
+                    : 'bg-zinc-100 text-[#16232B] border border-zinc-200 hover:border-[#FFCC00] hover:text-zinc-950'}
                 `}
               >
                 {category}

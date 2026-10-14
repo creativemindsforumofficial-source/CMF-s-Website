@@ -74,7 +74,7 @@ export default function AISymposium() {
 
         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-6 leading-[1.05] text-balance">
           The Synthetic Age & <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[var(--color-cmf-gold)] to-amber-300">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFE066] to-[#FFCC00]">
             The Creative Soul.
           </span>
         </h1>
@@ -176,7 +176,7 @@ export default function AISymposium() {
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <a
               href="mailto:creativemindsforum.official@gmail.com?subject=AI%20Symposium%20Pre-Registration%20Interest"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[var(--color-cmf-gold)] text-black font-bold text-sm tracking-wider uppercase rounded-xl hover:bg-yellow-400 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,204,0,0.3)] text-center"
+              className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] text-zinc-950 font-bold text-sm tracking-wider uppercase rounded-xl hover:brightness-110 active:scale-95 transition-all shadow-[0_4px_18px_rgba(255,204,0,0.35)] text-center"
             >
               Pre-Register for Keynotes
             </a>

@@ -340,15 +340,17 @@ export default function Programs() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/join"
-              className="px-6 py-3 rounded-full text-sm font-extrabold tracking-tight text-black bg-[var(--color-cmf-gold)] hover:bg-yellow-300 shadow-[0_0_20px_rgba(255,204,0,0.35)] active:scale-95 transition-all min-h-[44px] flex items-center justify-center"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-base font-bold tracking-tight text-zinc-950 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 shadow-[0_8px_20px_-6px_rgba(255,204,0,0.4)] hover:scale-[1.02] active:scale-95 transition-all min-h-[48px] cursor-pointer"
             >
-              Join Our Community
+              <span>Join Our Community</span>
+              <ArrowRight className="w-4 h-4 ml-0.5" />
             </Link>
             <Link
               to="/my-pen-speaks"
-              className="px-6 py-3 rounded-full text-sm font-bold tracking-tight text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 active:scale-95 transition-all min-h-[44px] flex items-center justify-center"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-base font-medium tracking-tight text-white bg-[#075056] hover:bg-[#043C40] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all min-h-[48px] cursor-pointer"
             >
-              Explore Creative Archive
+              <span>Explore Creative Archive</span>
+              <ArrowRight className="w-4 h-4 ml-0.5" />
             </Link>
           </div>
         </div>

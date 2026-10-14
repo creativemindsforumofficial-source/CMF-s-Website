@@ -96,9 +96,9 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
               exit={{ y: 60, scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative z-10 w-[92%] sm:w-[94%] rounded-3xl p-6 sm:p-7 text-center shadow-[0_25px_70px_rgba(234,88,12,0.5),0_0_50px_rgba(255,152,0,0.3)] overflow-hidden cursor-default transition-all"
+              className="relative z-10 w-[92%] sm:w-[94%] rounded-3xl p-6 sm:p-7 text-center shadow-[0_25px_70px_rgba(255,91,4,0.4),0_0_50px_rgba(7,80,86,0.3)] overflow-hidden cursor-default transition-all"
               style={{
-                background: 'linear-gradient(155deg, #FF6A00 0%, #EA580C 30%, #F59E0B 75%, #EAB308 100%)',
+                background: 'linear-gradient(155deg, #FF5B04 0%, #D94800 50%, #075056 100%)',
               }}
             >
               {/* Delicate Corner Photo-Mount Brackets (matching reference) */}

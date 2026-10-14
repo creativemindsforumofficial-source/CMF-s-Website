@@ -80,8 +80,8 @@ const SUB_TEAMS = [
     title: 'Global Operations',
     badge: 'SYSTEMS & STRATEGY',
     icon: Globe,
-    color: 'from-amber-400/20 to-yellow-600/5',
-    accentColor: '#FFCC00',
+    color: 'from-[#FF5B04]/20 to-[#D94800]/5',
+    accentColor: '#FF5B04',
     description: 'The organizational backbone orchestrating international events, partnerships, creator pipelines, and community ecosystem health.',
     responsibilities: [
       'International summit and venue operations',
@@ -117,7 +117,7 @@ export default function SubTeams() {
 
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.08] text-balance">
           Find Your Tribe in the <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[var(--color-cmf-gold)] to-yellow-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFE066] to-[#FFCC00]">
             Global Ecosystem.
           </span>
         </h1>
@@ -210,17 +210,19 @@ export default function SubTeams() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <a
-              href="mailto:creativemindsforum.official@gmail.com?subject=Joining%20CMF%20Global%20Community"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[var(--color-cmf-gold)] text-black font-bold text-sm tracking-wider uppercase rounded-xl hover:bg-yellow-400 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,204,0,0.3)] text-center"
+            <Link
+              to="/join"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base rounded-full shadow-[0_8px_20px_-6px_rgba(255,204,0,0.4)] hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer"
             >
-              Join the Community
-            </a>
+              <span>Join the Community</span>
+              <ArrowRight className="w-4 h-4 ml-0.5" />
+            </Link>
             <Link
               to="/audacity"
-              className="w-full sm:w-auto px-8 py-3.5 bg-white/5 border border-white/15 text-white font-semibold text-sm tracking-wider uppercase rounded-xl hover:bg-white/10 active:scale-95 transition-all text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#075056] hover:bg-[#043C40] text-white font-medium text-base rounded-full shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer"
             >
-              Explore Audacity '26
+              <span>Explore Audacity '26</span>
+              <ArrowRight className="w-4 h-4 ml-0.5" />
             </Link>
           </div>
         </div>
