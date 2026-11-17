@@ -18,7 +18,6 @@ import About from './pages/About';
 import MyPenSpeaks from './pages/MyPenSpeaks';
 import Newsletter from './pages/Newsletter';
 import Team from './pages/Team';
-import SubTeams from './pages/SubTeams';
 import AISymposium from './pages/AISymposium';
 import Programs from './pages/Programs';
 import Join from './pages/Join';
@@ -43,18 +42,18 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <CustomScroller />
-      <div className="min-h-screen bg-white text-[#0A0A0A] selection:bg-[#FFCC00] selection:text-zinc-950 flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
+      <div className="min-h-screen bg-[var(--color-cmf-black)] text-[var(--color-cmf-white)] selection:bg-[var(--color-cmf-accent)] selection:text-white flex flex-col antialiased tracking-tight text-sm lg:text-base relative overflow-x-hidden">
         <Helmet>
           <title>Creative Minds' Forum</title>
           <meta name="description" content="Redefining creativity by instilling the God factor, inspiring a generation via infallible truths, and equipping global creatives with tech and resilience." />
           <meta property="og:site_name" content="Creative Minds' Forum" />
           <meta property="og:type" content="website" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#000000" />
         </Helmet>
-        
+
         <Navbar onOpenAuditModal={() => setIsAuditModalOpen(true)} />
         <AIAuditModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/audacity" element={<Audacity />} />
@@ -62,9 +61,10 @@ export default function App() {
           <Route path="/my-pen-speaks" element={<MyPenSpeaks />} />
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/sub-teams" element={<SubTeams />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/our-programs" element={<Programs />} />
+          <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/ai-symposium" element={<AISymposium />} />
           <Route path="/join" element={<Join />} />
           <Route path="/community" element={<Join />} />

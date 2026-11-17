@@ -9,8 +9,7 @@ const NAV_LINKS = [
   { name: 'Our Programs', href: '/programs' },
   { name: 'Creative Archive', href: '/my-pen-speaks' },
   { name: 'Newsletter', href: '/newsletter' },
-  // Unactivated for now (Preserved, do not delete):
-  // { name: 'Meet the Team', href: '/team' },
+  { name: 'Meet the Team', href: '/team' },
 ];
 
 interface NavbarProps {
