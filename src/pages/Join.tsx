@@ -1,16 +1,34 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { 
-  Users, 
-  Sparkles, 
-  ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
+import {
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
   Zap,
-  HeartHandshake
+  HeartHandshake,
 } from 'lucide-react';
+import { TelegramIcon, WhatsAppIcon } from '../components/SocialIcons';
 
 const WHATSAPP_INVITE_URL = 'https://chat.whatsapp.com/CmPHtO4hTzWKtNAaXAN0MR';
+const TELEGRAM_INVITE_URL = 'https://t.me/+ZA038t1mQiE2ZDY0';
+
+const COMMUNITY_CHANNELS = [
+  {
+    id: 'whatsapp',
+    label: 'Join on WhatsApp',
+    ariaLabel: "Join Creative Minds' Forum Community on WhatsApp",
+    href: WHATSAPP_INVITE_URL,
+    Icon: WhatsAppIcon,
+  },
+  {
+    id: 'telegram',
+    label: 'Join on Telegram',
+    ariaLabel: "Join Creative Minds' Forum Community on Telegram",
+    href: TELEGRAM_INVITE_URL,
+    Icon: TelegramIcon,
+  },
+] as const;
 
 const COMMUNITY_PILLARS = [
   {
@@ -106,18 +124,22 @@ export default function Join() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.24 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md sm:max-w-none sm:w-auto"
           >
-            <a
-              href={WHATSAPP_INVITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-9 py-4 sm:px-11 sm:py-4.5 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.45)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.65)] hover:scale-[1.02] active:scale-95 cursor-pointer"
-            >
-              <Users className="w-5 h-5 text-zinc-950" />
-              <span>Join the Community</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
+            {COMMUNITY_CHANNELS.map(({ id, label, ariaLabel, href, Icon }) => (
+              <a
+                key={id}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ariaLabel}
+                className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[240px] min-h-[52px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.45)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.65)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
+              >
+                <Icon className="w-5 h-5 shrink-0 text-zinc-950" />
+                <span>{label}</span>
+                <ArrowRight className="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1" />
+              </a>
+            ))}
           </motion.div>
 
           {/* Reassurance Points (Zero green, clean gold/white) */}
