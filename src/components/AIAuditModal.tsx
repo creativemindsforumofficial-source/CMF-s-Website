@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Sparkles, ArrowRight, CheckCircle2, Shield, Cpu, Compass, Lock } from 'lucide-react';
+import { ArrowRight, ClipboardList, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { FORM_STEPS } from '../data/communityFormOptions';
 
 interface AIAuditModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const DIMENSIONS = [
-  { name: 'Delegation', desc: 'Labor Architecture', icon: Cpu },
-  { name: 'Description', desc: 'Context Engineering', icon: Compass },
-  { name: 'Discernment', desc: 'The Human Defense', icon: Shield },
-  { name: 'Diligence', desc: 'Accountability & IP', icon: Lock },
-];
+export const BIODATA_BANNER_DISMISSED_KEY = 'cmf_biodata_banner_dismissed';
 
 export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
   const navigate = useNavigate();
-  const [isRevealed, setIsRevealed] = useState(false);
-  const [showStatusNotice, setShowStatusNotice] = useState(false);
 
   const handleClose = () => {
-    sessionStorage.setItem('cmf_ai_audit_dismissed', 'true');
+    sessionStorage.setItem(BIODATA_BANNER_DISMISSED_KEY, 'true');
     onClose();
   };
 
@@ -40,7 +34,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
     e.preventDefault();
     e.stopPropagation();
     handleClose();
-    navigate('/ai-audit');
+    navigate('/join/bio-data');
   };
 
   return (
@@ -62,13 +56,13 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
             {/* Top Close Button (Floating above envelope) */}
             <button
               onClick={handleClose}
-              className="absolute -top-12 right-0 sm:right-2 p-2 rounded-full bg-white/[0.08] hover:bg-white/20 text-gray-300 hover:text-white border border-white/10 transition-colors z-50 cursor-pointer"
-              aria-label="Close Invitation"
+              className="absolute -top-12 right-0 sm:right-2 min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-full bg-white/[0.08] hover:bg-white/20 text-gray-300 hover:text-white border border-white/10 transition-colors z-50 cursor-pointer"
+              aria-label="Close Announcement"
             >
               <X className="w-5 h-5" />
             </button>
 
-            {/* ── Ambient Volumetric Backlight (Yellow-Gold Radiant Glow) ── */}
+            {/* Ambient Volumetric Backlight (Yellow-Gold Radiant Glow) */}
             <div className="absolute top-6 left-1/2 -translate-x-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-gradient-to-b from-[#FFE066]/35 via-[#FFCC00]/20 to-transparent blur-[85px] pointer-events-none -z-10" />
 
             {/* Floating Spark Dust Particles */}
@@ -79,7 +73,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
             {/* Envelope Back Flap (Interior Dark Liner) */}
             <div className="w-[90%] sm:w-[92%] h-40 bg-[#0F0F14] rounded-t-3xl border-t border-x border-white/10 shadow-2xl relative -mb-28 z-0">
               {/* Back Flap Triangular Peak */}
-              <div 
+              <div
                 className="absolute inset-x-0 -top-8 h-12 bg-[#0B0B10] border-t border-white/[0.08] shadow-inner"
                 style={{
                   clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
@@ -87,9 +81,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
               />
             </div>
 
-            {/* ═══════════════════════════════════════════════════════════════
-                THE GLOWING RISING CARD (Yellow Gold & Obsidian Gradient)
-                ═══════════════════════════════════════════════════════════════ */}
+            {/* THE GLOWING RISING CARD (Yellow Gold & Obsidian Gradient) */}
             <motion.div
               initial={{ y: 90, scale: 0.94, opacity: 0 }}
               animate={{ y: 0, scale: 1, opacity: 1 }}
@@ -101,7 +93,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
                 background: 'linear-gradient(155deg, #18181B 0%, #0F0F12 50%, #292005 100%)',
               }}
             >
-              {/* Delicate Corner Photo-Mount Brackets (matching reference) */}
+              {/* Delicate Corner Photo-Mount Brackets */}
               <span className="absolute top-3.5 left-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌜</span>
               <span className="absolute top-3.5 right-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌝</span>
               <span className="absolute bottom-3.5 left-4 text-[#FFCC00]/60 font-mono text-sm leading-none select-none">⌞</span>
@@ -112,82 +104,55 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
 
               {/* Top Brand Tag */}
               <div className="relative z-10 flex items-center justify-center gap-1.5 text-white/95 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFCC00]" />
+                <ClipboardList className="w-3.5 h-3.5 text-[#FFCC00]" />
                 <span>Creative Minds' Forum</span>
               </div>
 
               {/* Headline */}
               <h3 className="relative z-10 text-2xl sm:text-3xl font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
-                The wait is over.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] font-extrabold">Your 4D AI Audit is here.</span>
+                Official Directory Open.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] font-extrabold">
+                  Complete Your CMF Bio-Data.
+                </span>
               </h3>
 
               {/* Subtext Body */}
               <p className="relative z-10 mt-3 text-xs sm:text-sm text-zinc-300 font-light leading-relaxed max-w-xs mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
-                Discover your vulnerability to the creative gig economy. Answer 20 questions to find out if you are a <strong className="font-semibold text-white">Commodity Laborer</strong> or a <strong className="font-semibold text-white">Systems Architect</strong>.
+                Whether you belong to the <strong className="font-semibold text-white">LMU Chapter</strong> or <strong className="font-semibold text-white">CMF Global</strong>, register your creative discipline, focus areas, and portfolio in our official community directory.
               </p>
 
-              {/* 4D Mini-Pill Badges */}
+              {/* Step Pill Badges */}
               <div className="relative z-10 mt-4 flex items-center justify-center gap-1.5 flex-wrap">
-                {DIMENSIONS.map((dim) => (
+                {FORM_STEPS.map((step) => (
                   <span
-                    key={dim.name}
+                    key={step.id}
                     className="px-2.5 py-0.5 rounded-full bg-white/5 backdrop-blur-xs border border-white/15 text-[10px] font-mono text-[#FFE066] shadow-xs"
                   >
-                    {dim.name}
+                    {step.num}. {step.label}
                   </span>
                 ))}
               </div>
 
-              {/* Expandable Framework Drawer (No redirect) */}
-              <AnimatePresence>
-                {isRevealed && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative z-10 mt-3.5 p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 text-left space-y-1.5 text-[11px] text-white overflow-hidden"
-                  >
-                    <div className="font-mono text-[10px] text-[#FFCC00] font-bold uppercase tracking-wider mb-1">
-                      The 4 Pillars of AI Fluency:
-                    </div>
-                    {DIMENSIONS.map((d, i) => (
-                      <div key={d.name} className="flex items-center justify-between">
-                        <span className="font-semibold text-white">0{i+1}. {d.name}</span>
-                        <span className="text-[#FFE066] text-[10px] font-mono">{d.desc}</span>
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* ── CTA Button on the Glowing Card ── */}
+              {/* CTA Button on the Glowing Card */}
               <div className="relative z-10 mt-5 flex flex-col items-center">
                 <button
                   type="button"
                   onClick={handleCardCta}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_8px_25px_rgba(255,204,0,0.35)] hover:shadow-[0_12px_35px_rgba(255,204,0,0.55)] active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
+                  className="w-full min-h-[48px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_8px_25px_rgba(255,204,0,0.35)] hover:shadow-[0_12px_35px_rgba(255,204,0,0.55)] active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
                 >
-                  <span>{isRevealed ? 'Hide Framework' : 'Claim Your Diagnosis'}</span>
+                  <span>Fill Bio-Data Form</span>
                   <ArrowRight className="w-4 h-4 text-zinc-950 transition-transform group-hover:translate-x-1" />
                 </button>
 
                 {/* Status Notice Indicator */}
                 <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] font-mono text-white/90">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
-                  <span>
-                    {showStatusNotice 
-                      ? 'Preview active • Official diagnostic launch arriving shortly' 
-                      : '20 Questions • 3 Minutes • Interactive Preview'}
-                  </span>
+                  <span>4 Quick Steps • Under 2 Minutes • Official Member Directory</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* ═══════════════════════════════════════════════════════════════
-                FRONT ENVELOPE POUCH (Geometric folds with realistic shadows)
-                ═══════════════════════════════════════════════════════════════ */}
+            {/* FRONT ENVELOPE POUCH (Geometric folds with realistic shadows) */}
             <div className="relative z-20 w-full -mt-24 sm:-mt-28 pointer-events-none">
               <svg
                 viewBox="0 0 460 270"
@@ -258,7 +223,7 @@ export default function AIAuditModal({ isOpen, onClose }: AIAuditModalProps) {
               <button
                 type="button"
                 onClick={handleClose}
-                className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer font-medium underline underline-offset-4"
+                className="min-h-[44px] px-3 text-xs text-gray-400 hover:text-white transition-colors cursor-pointer font-medium underline underline-offset-4"
               >
                 Continue to website →
               </button>

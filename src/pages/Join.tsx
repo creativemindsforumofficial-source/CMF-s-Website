@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
-  Sparkles,
   ArrowRight,
   CheckCircle2,
+  ClipboardList,
+  Compass,
+  HeartHandshake,
   ShieldCheck,
   Zap,
-  HeartHandshake,
 } from 'lucide-react';
 import { TelegramIcon, WhatsAppIcon } from '../components/SocialIcons';
-
-const WHATSAPP_INVITE_URL = 'https://chat.whatsapp.com/CmPHtO4hTzWKtNAaXAN0MR';
-const TELEGRAM_INVITE_URL = 'https://t.me/+ZA038t1mQiE2ZDY0';
+import { TELEGRAM_INVITE_URL, WHATSAPP_INVITE_URL } from '../data/communityFormOptions';
 
 const COMMUNITY_CHANNELS = [
   {
@@ -33,17 +33,20 @@ const COMMUNITY_CHANNELS = [
 const COMMUNITY_PILLARS = [
   {
     title: 'Multi-Disciplinary Collaborations',
-    description: 'Connect with writers, directors, spoken word artists, and tech pioneers ready to build high-impact initiatives together.',
+    description:
+      'Connect with writers, directors, spoken word artists, and tech pioneers ready to build high-impact initiatives together.',
     icon: Zap,
   },
   {
     title: 'Priority Flagship Access',
-    description: 'Receive first-wave registration and priority access for Audacity, the Global AI Symposium, and private masterclasses.',
-    icon: Sparkles,
+    description:
+      'Receive first-wave registration and priority access for Audacity, the Global AI Symposium, and private masterclasses.',
+    icon: Compass,
   },
   {
     title: 'Zero Noise, Curated Growth',
-    description: 'Strict anti-spam guidelines ensure every discussion delivers actionable value, inspiration, and genuine collaborative energy.',
+    description:
+      'Strict anti-spam guidelines ensure every discussion delivers actionable value, inspiration, and genuine collaborative energy.',
     icon: ShieldCheck,
   },
 ];
@@ -66,15 +69,10 @@ export default function Join() {
         <meta property="og:url" content="https://creativemindsforum.com/join" />
       </Helmet>
 
-      <main className="relative min-h-screen bg-[#050505] text-white pt-28 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden selection:bg-[#FFCC00]/30 selection:text-white flex flex-col justify-center">
-        
-        {/* ── Subtle Ambient Background Flares ── */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[450px] bg-[radial-gradient(circle,rgba(255,204,0,0.12)_0%,transparent_70%)] blur-[120px] pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-500/5 blur-[100px] pointer-events-none -z-10" />
-
-        {/* ── Background Grid Accent ── */}
-        <div 
-          className="absolute inset-0 opacity-[0.04] pointer-events-none -z-10"
+      <main className="relative min-h-screen bg-[#050505] text-white pt-28 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 overflow-x-clip selection:bg-[#FFCC00]/30 selection:text-white flex flex-col justify-center">
+        {/* Subtle Architectural Grid Accent */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none -z-10"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)`,
             backgroundSize: '32px 32px',
@@ -82,21 +80,18 @@ export default function Join() {
         />
 
         <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center">
-
-          {/* Clean Pill Monogram Badge */}
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/30 backdrop-blur-md mb-8"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/30 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-[#FFCC00] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#FFCC00]" />
             <span className="text-xs sm:text-sm font-bold tracking-wide uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
               Creative Minds' Forum Community
             </span>
           </motion.div>
 
-          {/* Primary Magnetic CTA Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,12 +99,11 @@ export default function Join() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] text-balance"
           >
             Ready to find your{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] drop-shadow-[0_2px_20px_rgba(255,204,0,0.35)]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
               creative tribe?
             </span>
           </motion.h1>
 
-          {/* Clear, inspiring subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +113,7 @@ export default function Join() {
             Step inside the official Creative Minds' Forum community. Connect with writers, filmmakers, spoken word artists, and tech creators building generational work in an atmosphere of mutual elevation.
           </motion.p>
 
-          {/* Primary Action Button Deck */}
+          {/* Paired WhatsApp & Telegram Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,7 +127,7 @@ export default function Join() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={ariaLabel}
-                className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[240px] min-h-[52px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.45)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.65)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
+                className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[240px] min-h-[52px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.35)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.55)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
               >
                 <Icon className="w-5 h-5 shrink-0 text-zinc-950" />
                 <span>{label}</span>
@@ -142,11 +136,28 @@ export default function Join() {
             ))}
           </motion.div>
 
-          {/* Reassurance Points (Zero green, clean gold/white) */}
-          <motion.div 
+          {/* Dedicated Bio-Data Onboarding Page CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.5 }}
+            className="mt-4 w-full max-w-md sm:max-w-none flex justify-center"
+          >
+            <Link
+              to="/join/bio-data"
+              className="group min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-[#0D0D0D] px-7 py-3 text-sm sm:text-base font-semibold text-zinc-200 transition-colors hover:border-[#FFCC00]/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFCC00]"
+            >
+              <ClipboardList className="w-4 h-4 text-[#FFCC00] shrink-0" />
+              <span>Complete Member Bio-Data</span>
+              <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+
+          {/* Reassurance Points */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.32, duration: 0.5 }}
+            transition={{ delay: 0.34, duration: 0.5 }}
             className="mt-6 flex items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-zinc-400 font-medium flex-wrap"
           >
             <span className="flex items-center gap-1.5">
@@ -165,8 +176,8 @@ export default function Join() {
             </span>
           </motion.div>
 
-          {/* ── 3 Value Pillars ── */}
-          <motion.div 
+          {/* 3 Value Pillars */}
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.38, duration: 0.6 }}
@@ -177,10 +188,10 @@ export default function Join() {
               return (
                 <div
                   key={idx}
-                  className="p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/10 hover:border-[#FFCC00]/40 transition-colors duration-300 shadow-lg flex flex-col justify-between"
+                  className="p-6 sm:p-7 rounded-xl bg-[#0A0A0A] border border-white/10 hover:border-[#FFCC00]/40 transition-colors duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-11 h-11 rounded-xl bg-[#FFCC00]/10 border border-[#FFCC00]/30 flex items-center justify-center text-[#FFCC00] mb-5">
+                    <div className="w-11 h-11 rounded-lg bg-[#FFCC00]/10 border border-[#FFCC00]/25 flex items-center justify-center text-[#FFCC00] mb-5">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h2 className="text-base sm:text-lg font-bold text-white mb-2">
@@ -196,13 +207,13 @@ export default function Join() {
           </motion.div>
 
           {/* Cultural Covenant Note */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.44, duration: 0.5 }}
-            className="mt-12 p-6 rounded-2xl bg-white/[0.03] border border-white/10 max-w-2xl mx-auto flex items-center gap-4 text-left"
+            className="mt-12 p-6 rounded-xl bg-[#0A0A0A] border border-white/10 max-w-2xl mx-auto flex items-center gap-4 text-left"
           >
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#FFCC00] shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#FFCC00] shrink-0">
               <HeartHandshake className="w-5 h-5" />
             </div>
             <div>
@@ -212,7 +223,6 @@ export default function Join() {
               </p>
             </div>
           </motion.div>
-
         </div>
       </main>
     </>

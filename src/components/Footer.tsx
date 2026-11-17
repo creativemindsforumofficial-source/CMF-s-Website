@@ -6,6 +6,7 @@ const USUAL_LINKS = [
   { name: 'About CMF', path: '/about' },
   { name: 'Our Programs', path: '/programs' },
   { name: 'Join Community', path: '/join' },
+  { name: 'Member Bio-Data', path: '/join/bio-data' },
 ];
 
 export default function Footer() {

@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import CustomScroller from './components/CustomScroller';
-import AIAuditModal from './components/AIAuditModal';
+import AIAuditModal, { BIODATA_BANNER_DISMISSED_KEY } from './components/AIAuditModal';
 
 import Home from './pages/Home';
 import Audacity from './pages/Audacity';
@@ -21,6 +21,7 @@ import Team from './pages/Team';
 import AISymposium from './pages/AISymposium';
 import Programs from './pages/Programs';
 import Join from './pages/Join';
+import CommunityOnboarding from './pages/CommunityOnboarding';
 import AIAudit from './pages/AIAudit';
 import NotFound from './pages/NotFound';
 
@@ -29,7 +30,7 @@ export default function App() {
 
   useEffect(() => {
     // Trigger announcement pop-up promptly after 400ms
-    const hasDismissed = sessionStorage.getItem('cmf_ai_audit_dismissed');
+    const hasDismissed = sessionStorage.getItem(BIODATA_BANNER_DISMISSED_KEY);
     if (!hasDismissed) {
       const timer = setTimeout(() => {
         setIsAuditModalOpen(true);
@@ -63,10 +64,10 @@ export default function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/our-programs" element={<Programs />} />
-          <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/team" element={<Team />} />
           <Route path="/ai-symposium" element={<AISymposium />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/join/bio-data" element={<CommunityOnboarding />} />
+          <Route path="/bio-data" element={<CommunityOnboarding />} />
           <Route path="/community" element={<Join />} />
           <Route path="/ai-audit" element={<AIAudit />} />
           <Route path="/fluency-audit" element={<AIAudit />} />
