@@ -61,10 +61,10 @@ export default function Footer() {
             <h3 className="text-white font-bold tracking-widest uppercase text-xs">
               Connect With Us
             </h3>
-            
+
             {/* Email Contact */}
-            <a 
-              href="mailto:creativemindsforum.official@gmail.com" 
+            <a
+              href="mailto:creativemindsforum.official@gmail.com"
               className="inline-flex items-center gap-2 text-zinc-300 hover:text-[#FFCC00] transition-colors text-sm font-medium break-all"
             >
               <Mail className="w-4 h-4 text-[#FFCC00] shrink-0" />
@@ -73,28 +73,28 @@ export default function Footer() {
 
             {/* Social Media Icons (Lucide React) */}
             <div className="flex items-center gap-3 pt-1">
-              <a 
-                href="https://x.com/cmf_hq" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://x.com/cmf_hq"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Follow CMF on X (Twitter)"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-zinc-300 hover:text-zinc-950 hover:bg-[#FFCC00] hover:border-[#FFCC00] transition-all duration-200 shadow-sm"
               >
                 <Twitter className="w-4 h-4" />
               </a>
-              <a 
-                href="https://www.linkedin.com/company/creative-minds-forum/?" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.linkedin.com/company/creative-minds-forum/?"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Connect with CMF on LinkedIn"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-zinc-300 hover:text-zinc-950 hover:bg-[#FFCC00] hover:border-[#FFCC00] transition-all duration-200 shadow-sm"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a 
-                href="https://instagram.com/cmf_hq" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://instagram.com/cmf_hq"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Follow CMF on Instagram"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-zinc-300 hover:text-zinc-950 hover:bg-[#FFCC00] hover:border-[#FFCC00] transition-all duration-200 shadow-sm"
               >

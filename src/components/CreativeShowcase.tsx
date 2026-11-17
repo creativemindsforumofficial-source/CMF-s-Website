@@ -17,28 +17,32 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     title: 'Architectural Paradigm',
     tag: 'SPATIAL DESIGN',
     desc: 'Exploring structural symmetry and minimalist concrete geometries in modern living spaces.',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop'
+    // image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop'
+    image: '/audacitypictures/audacity1.jpg'
   },
   {
     id: 2,
     title: 'Digital Logic',
     tag: 'HARDWARE & CODE',
     desc: 'Silicon architectures and cybernetic logic boards driving contemporary computation.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop'
+    // image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop'
+    image: '/audacitypictures/audacity2.jpg'
   },
   {
     id: 3,
     title: 'Cinematic Stills',
     tag: 'FILM & CADENCE',
     desc: 'Atmospheric storytelling captured through 35mm lenses, color grading, and anamorphic depth.',
-    image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop'
+    // image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop'
+    image: '/audacitypictures/audacity3.jpg'
   },
   {
     id: 4,
     title: 'Abstract Light',
     tag: 'VISUAL ARTS',
     desc: 'Refracted prisms, neon luminescence, and chromatic dispersion in high dynamic range.',
-    image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop'
+    // image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop'
+    image: '/audacitypictures/audacity4.jpg'
   },
   {
     id: 5,
@@ -146,7 +150,7 @@ export default function CreativeShowcase() {
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const isLeftHalf = x < rect.width / 2;
-    
+
     if (isLeftHalf) {
       handlePrev();
     } else {
@@ -174,7 +178,7 @@ export default function CreativeShowcase() {
     const container = e.currentTarget;
     const cards = container.children;
     if (!cards.length) return;
-    
+
     const containerCenter = container.scrollLeft + container.offsetWidth / 2;
     let closestIndex = 0;
     let minDistance = Infinity;
@@ -231,8 +235,8 @@ export default function CreativeShowcase() {
     isDraggingRef.current = false;
   };
 
-  const isLeftHalf = containerRef.current 
-    ? mousePosition.x < containerRef.current.getBoundingClientRect().width / 2 
+  const isLeftHalf = containerRef.current
+    ? mousePosition.x < containerRef.current.getBoundingClientRect().width / 2
     : false;
 
   return (
@@ -253,7 +257,7 @@ export default function CreativeShowcase() {
           ══════════════════════════════════════════════════════════════════════ */}
       <div className="w-full lg:hidden flex flex-col items-center relative z-20">
         {/* Horizontal Scroll Track */}
-        <div 
+        <div
           ref={mobileScrollRef}
           onScroll={handleMobileScroll}
           onMouseDown={handleMobileMouseDown}
@@ -272,19 +276,18 @@ export default function CreativeShowcase() {
               <div
                 key={item.id}
                 onClick={() => scrollMobileTo(index)}
-                className={`shrink-0 snap-center w-[85vw] max-w-[340px] rounded-3xl overflow-hidden bg-white border transition-all duration-300 flex flex-col shadow-[0_12px_36px_rgba(22,35,43,0.08)] ${
-                  isCardActive
-                    ? 'border-[#FFCC00] ring-2 ring-[#FFCC00]/40 scale-[1.01]'
-                    : 'border-[#D2D1CF]/60 opacity-80'
-                }`}
+                className={`shrink-0 snap-center w-[85vw] max-w-[340px] rounded-3xl overflow-hidden bg-white border transition-all duration-300 flex flex-col shadow-[0_12px_36px_rgba(22,35,43,0.08)] ${isCardActive
+                  ? 'border-[#FFCC00] ring-2 ring-[#FFCC00]/40 scale-[1.01]'
+                  : 'border-[#D2D1CF]/60 opacity-80'
+                  }`}
                 style={{ height: '460px' }}
               >
                 {/* Image Top (56%) */}
                 <div className="w-full h-[56%] relative overflow-hidden bg-zinc-100">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover select-none pointer-events-none" 
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover select-none pointer-events-none"
                     loading="lazy"
                   />
                   {/* Category Tag Badge */}
@@ -344,7 +347,7 @@ export default function CreativeShowcase() {
       {/* ══════════════════════════════════════════════════════════════════════
           DESKTOP / TABLET: 3D Perspective Coverflow Gallery
           ══════════════════════════════════════════════════════════════════════ */}
-      <div 
+      <div
         ref={containerRef}
         className="hidden lg:block w-full max-w-[100vw] h-[60vh] min-h-[480px] max-h-[720px] relative group lg:cursor-none select-none"
         onMouseMove={handleMouseMove}
@@ -355,21 +358,21 @@ export default function CreativeShowcase() {
         onTouchEnd={handleTouchEnd}
       >
         {/* Gallery 3D Track */}
-        <div 
+        <div
           className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full flex items-center justify-center"
           style={{ perspective: '1500px', transformStyle: 'preserve-3d' }}
         >
           {SHOWCASE_ITEMS.map((item, index) => {
             const ITEM_COUNT = SHOWCASE_ITEMS.length;
             const currentIndex = ((activeIndex % ITEM_COUNT) + ITEM_COUNT) % ITEM_COUNT;
-            
+
             let offset = index - currentIndex;
             if (offset > Math.floor(ITEM_COUNT / 2)) offset -= ITEM_COUNT;
             if (offset < -Math.floor(ITEM_COUNT / 2)) offset += ITEM_COUNT;
 
             const isCenter = offset === 0;
             const distance = Math.abs(offset);
-            
+
             if (distance > 2) return null;
 
             return (
@@ -425,10 +428,10 @@ export default function CreativeShowcase() {
 
                 {/* Image Half */}
                 <div className="w-[55%] h-full relative overflow-hidden bg-zinc-100">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     draggable={false}
                   />
                   {/* Subtle overlay */}
@@ -444,18 +447,18 @@ export default function CreativeShowcase() {
           {isHovering && (
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ 
-                scale: 1, 
+              animate={{
+                scale: 1,
                 opacity: 1,
                 x: mousePosition.x - 60,
                 y: mousePosition.y - 30
               }}
               exit={{ scale: 0.5, opacity: 0 }}
-              transition={{ 
-                type: 'spring', 
-                stiffness: 500, 
-                damping: 30, 
-                mass: 0.5 
+              transition={{
+                type: 'spring',
+                stiffness: 500,
+                damping: 30,
+                mass: 0.5
               }}
               className="absolute top-0 left-0 w-[120px] h-[60px] bg-black/95 backdrop-blur-xl border border-[#FFCC00]/50 rounded-full flex items-center justify-center pointer-events-none z-50 text-[#FFCC00] shadow-[0_8px_25px_rgba(255,204,0,0.25)] gap-2 select-none"
             >
