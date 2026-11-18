@@ -23,11 +23,11 @@ export default function CommunityOnboarding() {
 
       <main className="flex-1 w-full min-h-screen bg-[#050505] text-white overflow-x-clip selection:bg-[#FFCC00]/30 selection:text-white">
         {/* Header Band */}
-        <section className="pt-28 sm:pt-36 pb-10 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+        <section className="pt-24 sm:pt-36 pb-6 sm:pb-10 px-3.5 sm:px-6 lg:px-8 border-b border-white/10">
           <div className="max-w-6xl mx-auto">
             <nav
               aria-label="Breadcrumb"
-              className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.16em] text-zinc-400"
+              className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-[0.14em] sm:tracking-[0.16em] text-zinc-400"
             >
               <Link to="/" className="hover:text-[#FFCC00] transition-colors py-1">
                 Home
@@ -42,12 +42,12 @@ export default function CommunityOnboarding() {
               </span>
             </nav>
 
-            <div className="mt-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div className="max-w-2xl">
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08] text-white">
+                <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.12] text-white">
                   Member Bio-Data &amp; Directory Onboarding
                 </h1>
-                <p className="mt-3 font-sans text-base sm:text-lg text-zinc-400 leading-relaxed">
+                <p className="mt-2 sm:mt-3 font-sans text-sm sm:text-lg text-zinc-400 leading-relaxed">
                   Share your creative discipline, chapter details, and collaboration interests so we can connect you with the right teams and opportunities across CMF.
                 </p>
               </div>
@@ -66,7 +66,7 @@ export default function CommunityOnboarding() {
         {/* Multi-Step Onboarding Form */}
         <section
           aria-label="Member Bio-Data Form"
-          className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
+          className="py-6 sm:py-14 px-3.5 sm:px-6 lg:px-8"
         >
           <CommunityBioForm />
         </section>

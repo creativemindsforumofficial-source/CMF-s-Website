@@ -77,8 +77,8 @@ function buildStoragePath(folder: 'photos' | 'samples', fullName: string, fileNa
 function underlineInputClassName(hasError?: boolean, compact?: boolean): string {
   const sizeClasses = compact
     ? 'min-h-[44px] py-2 text-base sm:text-lg'
-    : 'min-h-[50px] py-3 text-lg sm:text-xl md:text-2xl';
-  return `${sizeClasses} w-full bg-transparent border-0 border-b-2 px-0 font-sans font-medium text-white placeholder:text-zinc-600 transition-colors focus:outline-none focus:ring-0 ${
+    : 'min-h-[46px] sm:min-h-[50px] py-2.5 sm:py-3 text-base sm:text-lg md:text-xl';
+  return `${sizeClasses} min-w-0 max-w-full w-full bg-transparent border-0 border-b-2 px-0 font-sans font-medium text-white placeholder:text-zinc-600 transition-colors focus:outline-none focus:ring-0 ${
     hasError
       ? 'border-red-500 focus:border-red-400'
       : 'border-white/20 hover:border-white/35 focus:border-[#FFCC00]'
@@ -86,7 +86,7 @@ function underlineInputClassName(hasError?: boolean, compact?: boolean): string 
 }
 
 function textareaClassName(hasError?: boolean): string {
-  return `w-full border-0 border-b-2 rounded-t-lg px-4 py-3.5 font-sans text-base sm:text-lg text-white placeholder:text-zinc-600 transition-colors focus:outline-none focus:ring-0 resize-y ${
+  return `w-full min-w-0 border-0 border-b-2 rounded-t-lg px-3.5 sm:px-4 py-3 sm:py-3.5 font-sans text-base sm:text-lg text-white placeholder:text-zinc-600 transition-colors focus:outline-none focus:ring-0 resize-y ${
     hasError
       ? 'border-red-500 bg-red-500/[0.04] focus:border-red-400'
       : 'border-white/20 bg-white/[0.02] hover:bg-white/[0.03] focus:border-[#FFCC00] focus:bg-white/[0.04]'
@@ -113,40 +113,42 @@ function TypeformPrompt({
   error,
 }: TypeformPromptProps) {
   return (
-    <div className="mb-3.5">
-      <div className="flex items-start gap-2.5">
-        {number && (
-          <span
-            aria-hidden="true"
-            className="mt-1.5 inline-flex items-center gap-1 font-mono text-xs sm:text-sm font-semibold text-[#FFCC00] shrink-0"
-          >
-            <span>{number}</span>
-            <span>→</span>
-          </span>
-        )}
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <label
-              htmlFor={htmlFor}
-              className="font-display text-xl sm:text-2xl md:text-[26px] font-semibold tracking-tight text-white leading-snug"
+    <div className="mb-2.5 sm:mb-3.5">
+      {(number || optionalText) && (
+        <div className="flex items-center justify-between gap-2 mb-1">
+          {number ? (
+            <span
+              aria-hidden="true"
+              className="inline-flex items-center gap-1 font-mono text-xs sm:text-sm font-semibold text-[#FFCC00] shrink-0"
             >
-              {label}
-              {required && <span className="ml-1 text-[#FFCC00]">*</span>}
-            </label>
-            {optionalText && (
-              <span className="text-xs font-mono text-zinc-500 shrink-0">{optionalText}</span>
-            )}
-          </div>
-          {hint && (
-            <p className="mt-1.5 font-sans text-sm sm:text-base text-zinc-400 leading-relaxed">
-              {hint}
-            </p>
+              <span>{number}</span>
+              <span>→</span>
+            </span>
+          ) : (
+            <span />
           )}
-          {error && (
-            <p className="mt-2 font-sans text-xs sm:text-sm font-medium text-red-400">{error}</p>
+          {optionalText && (
+            <span className="text-[11px] sm:text-xs font-mono text-zinc-400 shrink-0">
+              {optionalText}
+            </span>
           )}
         </div>
-      </div>
+      )}
+      <label
+        htmlFor={htmlFor}
+        className="block font-display text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white leading-snug"
+      >
+        {label}
+        {required && <span className="ml-1 text-[#FFCC00]">*</span>}
+      </label>
+      {hint && (
+        <p className="mt-1 font-sans text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          {hint}
+        </p>
+      )}
+      {error && (
+        <p className="mt-1.5 font-sans text-xs sm:text-sm font-medium text-red-400">{error}</p>
+      )}
     </div>
   );
 }
@@ -221,8 +223,8 @@ function CheckboxGrid({
   };
 
   return (
-    <div className="space-y-4">
-      <div className={`grid ${columnsClass} gap-2.5 sm:gap-3`}>
+    <div className="space-y-3 sm:space-y-4">
+      <div className={`grid ${columnsClass} gap-2 sm:gap-3`}>
         {mergedOptions.map((item, idx) => {
           const isChecked = selected.includes(item);
           const isDisabled = !isChecked && limitReached;
@@ -231,7 +233,7 @@ function CheckboxGrid({
           return (
             <label
               key={item}
-              className={`min-h-[48px] flex items-center gap-3 rounded-lg border px-3.5 py-2.5 text-sm sm:text-base font-medium transition-all select-none ${
+              className={`min-h-[44px] flex items-center gap-2 sm:gap-3 rounded-lg border px-2.5 py-2 sm:px-3.5 sm:py-2.5 text-xs sm:text-base font-medium transition-all select-none ${
                 isChecked
                   ? 'border-[#FFCC00] bg-[#FFCC00]/[0.12] text-white cursor-pointer'
                   : isDisabled
@@ -248,16 +250,19 @@ function CheckboxGrid({
               />
               <span
                 aria-hidden="true"
-                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold transition-colors ${
+                className={`flex h-[18px] w-[18px] sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded font-mono text-[11px] sm:text-xs font-bold transition-colors ${
                   isChecked
                     ? 'border border-[#FFCC00] bg-[#FFCC00] text-zinc-950'
                     : 'border border-white/25 bg-black/40 text-zinc-400'
                 }`}
               >
-                {keyLabel}
+                <span className="hidden sm:inline">{keyLabel}</span>
+                {isChecked && <Check className="sm:hidden h-3 w-3 stroke-[3]" />}
               </span>
-              <span className="leading-snug flex-1">{item}</span>
-              {isChecked && <Check className="h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />}
+              <span className="leading-snug flex-1 min-w-0 break-words">{item}</span>
+              {isChecked && (
+                <Check className="hidden sm:block h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />
+              )}
             </label>
           );
         })}
@@ -716,7 +721,7 @@ export default function CommunityBioForm() {
                   key={step.id}
                   type="button"
                   onClick={() => handleStepTabClick(index)}
-                  className={`min-h-[50px] flex items-center justify-center sm:justify-start gap-2 px-2 sm:px-5 py-3 text-xs sm:text-sm font-medium border-b-2 transition-colors cursor-pointer ${
+                  className={`min-h-[52px] flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-0.5 sm:gap-2 px-1 sm:px-5 py-2 sm:py-3 text-[11px] sm:text-sm font-medium border-b-2 transition-colors cursor-pointer ${
                     isActive
                       ? 'border-[#FFCC00] text-white bg-white/[0.03]'
                       : isCompleted
@@ -725,7 +730,7 @@ export default function CommunityBioForm() {
                   }`}
                 >
                   <span
-                    className={`font-mono text-[11px] ${
+                    className={`font-mono text-[10px] sm:text-[11px] ${
                       isActive
                         ? 'text-[#FFCC00]'
                         : isCompleted
@@ -735,22 +740,24 @@ export default function CommunityBioForm() {
                   >
                     {step.num}
                   </span>
-                  <span className="truncate">{step.label}</span>
+                  <span className="truncate max-w-full">{step.label}</span>
                 </button>
               );
             })}
           </div>
 
           {/* Active Step Header */}
-          <div className="border-b border-white/10 px-6 sm:px-10 py-6 bg-[#0C0C0C] flex items-end justify-between gap-4">
+          <div className="border-b border-white/10 px-4 sm:px-10 py-4 sm:py-6 bg-[#0C0C0C] flex items-end justify-between gap-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#FFCC00]">
+              <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#FFCC00]">
                 Section {currentStep.num}
               </p>
-              <h2 className="mt-1 font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
+              <h2 className="mt-1 font-display text-lg sm:text-2xl font-bold tracking-tight text-white">
                 {currentStep.title}
               </h2>
-              <p className="mt-1 font-sans text-sm text-zinc-400">{currentStep.subtitle}</p>
+              <p className="mt-1 font-sans text-xs sm:text-sm text-zinc-400">
+                {currentStep.subtitle}
+              </p>
             </div>
             <span className="hidden sm:inline font-mono text-xs text-zinc-500 shrink-0">
               {currentStep.num} / 04
@@ -758,7 +765,7 @@ export default function CommunityBioForm() {
           </div>
 
           {/* Airy Typeform Question Canvas */}
-          <div className="px-6 py-8 sm:px-10 sm:py-10">
+          <div className="px-4 py-6 sm:px-10 sm:py-10">
             <AnimatePresence mode="wait">
               {stepIndex === 0 && (
                 <motion.div
@@ -767,10 +774,10 @@ export default function CommunityBioForm() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22 }}
-                  className="space-y-10 sm:space-y-12"
+                  className="space-y-7 sm:space-y-11"
                 >
                   {/* Personal Details */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 sm:gap-y-10 [&>*]:min-w-0">
                     <div>
                       <TypeformPrompt
                         number="1"
@@ -918,7 +925,7 @@ export default function CommunityBioForm() {
                   </div>
 
                   {/* Education & Work Chapter Switcher */}
-                  <div className="pt-10 border-t border-white/10 space-y-10">
+                  <div className="pt-8 sm:pt-10 border-t border-white/10 space-y-7 sm:space-y-10">
                     <div>
                       <TypeformPrompt
                         number="8"
@@ -946,7 +953,7 @@ export default function CommunityBioForm() {
                           return (
                             <label
                               key={item.value}
-                              className={`min-h-[60px] flex items-start gap-3 rounded-lg border p-4 transition-all cursor-pointer select-none ${
+                              className={`min-h-[56px] flex items-start gap-2.5 sm:gap-3 rounded-lg border p-3.5 sm:p-4 transition-all cursor-pointer select-none ${
                                 isSelected
                                   ? 'border-[#FFCC00] bg-[#FFCC00]/[0.12] text-white'
                                   : 'border-white/15 bg-white/[0.03] text-zinc-200 hover:border-white/35 hover:bg-white/[0.06]'
@@ -961,13 +968,14 @@ export default function CommunityBioForm() {
                               />
                               <span
                                 aria-hidden="true"
-                                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold transition-colors ${
+                                className={`mt-0.5 flex h-[18px] w-[18px] sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded font-mono text-[11px] sm:text-xs font-bold transition-colors ${
                                   isSelected
                                     ? 'border border-[#FFCC00] bg-[#FFCC00] text-zinc-950'
                                     : 'border border-white/25 bg-black/40 text-zinc-400'
                                 }`}
                               >
-                                {item.keyLabel}
+                                <span className="hidden sm:inline">{item.keyLabel}</span>
+                                {isSelected && <Check className="sm:hidden h-3 w-3 stroke-[3]" />}
                               </span>
                               <div className="min-w-0 flex-1">
                                 <div className="text-sm sm:text-base font-semibold">{item.value}</div>
@@ -976,7 +984,7 @@ export default function CommunityBioForm() {
                                 </div>
                               </div>
                               {isSelected && (
-                                <Check className="mt-1 h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />
+                                <Check className="hidden sm:block mt-1 h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />
                               )}
                             </label>
                           );
@@ -985,7 +993,7 @@ export default function CommunityBioForm() {
                     </div>
 
                     {formData.chapter === 'LMU Chapter' ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 sm:gap-y-10 [&>*]:min-w-0">
                         <div className="sm:col-span-2">
                           <TypeformPrompt
                             number="8a"
@@ -1101,7 +1109,7 @@ export default function CommunityBioForm() {
                         </div>
                       </div>
                     ) : (
-                      <div className="space-y-10">
+                      <div className="space-y-7 sm:space-y-10">
                         <div>
                           <TypeformPrompt
                             number="8a"
@@ -1152,7 +1160,7 @@ export default function CommunityBioForm() {
                             onToggle={(item) =>
                               updateField('hobbies', toggleArrayItem(formData.hobbies, item))
                             }
-                            columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                            columnsClass="grid-cols-2 sm:grid-cols-3"
                             customPlaceholder="Type another hobby and press Add..."
                             onAddCustom={(val) =>
                               updateField('hobbies', toggleArrayItem(formData.hobbies, val))
@@ -1172,7 +1180,7 @@ export default function CommunityBioForm() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22 }}
-                  className="space-y-10 sm:space-y-12"
+                  className="space-y-7 sm:space-y-11"
                 >
                   <div>
                     <TypeformPrompt
@@ -1208,7 +1216,7 @@ export default function CommunityBioForm() {
                           toggleArrayItem(formData.secondaryDisciplines, item)
                         )
                       }
-                      columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                      columnsClass="grid-cols-2 sm:grid-cols-3"
                     />
                   </div>
 
@@ -1294,7 +1302,7 @@ export default function CommunityBioForm() {
                           toggleArrayItem(formData.toolsAndSkills, item)
                         )
                       }
-                      columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                      columnsClass="grid-cols-2 sm:grid-cols-3"
                       customPlaceholder="Type a tool or skill (e.g. Blender, SQL)..."
                       onAddCustom={(val) =>
                         updateField(
@@ -1305,7 +1313,7 @@ export default function CommunityBioForm() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 sm:gap-y-10 [&>*]:min-w-0">
                     <div>
                       <TypeformPrompt
                         number="14"
@@ -1368,7 +1376,7 @@ export default function CommunityBioForm() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22 }}
-                  className="space-y-10 sm:space-y-12"
+                  className="space-y-7 sm:space-y-11"
                 >
                   <div className="rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-zinc-400">
                     All fields in this step are optional. Share whichever links or work samples you currently have, or continue straight to Consent.
@@ -1490,7 +1498,7 @@ export default function CommunityBioForm() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.22 }}
-                  className="space-y-10 sm:space-y-12"
+                  className="space-y-7 sm:space-y-11"
                 >
                   <div>
                     <TypeformPrompt
@@ -1509,7 +1517,7 @@ export default function CommunityBioForm() {
                           toggleArrayItem(formData.communityExpectations, item)
                         )
                       }
-                      columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                      columnsClass="grid-cols-2 sm:grid-cols-3"
                     />
                   </div>
 
@@ -1530,12 +1538,12 @@ export default function CommunityBioForm() {
                           toggleArrayItem(formData.communityContributions, item)
                         )
                       }
-                      columnsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                      columnsClass="grid-cols-2 sm:grid-cols-3"
                     />
                   </div>
 
                   {/* Optional Consent & 4:5 Portrait Upload */}
-                  <div className="pt-10 border-t border-white/10 space-y-10">
+                  <div className="pt-8 sm:pt-10 border-t border-white/10 space-y-7 sm:space-y-10">
                     <div>
                       <TypeformPrompt
                         number="22"
@@ -1545,8 +1553,8 @@ export default function CommunityBioForm() {
                         error={errors.photoFile}
                       />
 
-                      <div className="flex flex-col sm:flex-row items-start gap-5">
-                        <div className="w-32 aspect-[4/5] shrink-0 overflow-hidden rounded-lg border border-white/15 bg-[#141414]">
+                      <div className="flex flex-row items-center gap-4 sm:gap-5">
+                        <div className="w-24 sm:w-32 aspect-[4/5] shrink-0 overflow-hidden rounded-lg border border-white/15 bg-[#141414]">
                           {photoPreviewUrl ? (
                             <img
                               src={photoPreviewUrl}
@@ -1563,7 +1571,7 @@ export default function CommunityBioForm() {
                           )}
                         </div>
 
-                        <div className="flex-1 space-y-3 w-full">
+                        <div className="flex-1 min-w-0 space-y-2.5 sm:space-y-3">
                           <input
                             id={photoInputId}
                             type="file"
@@ -1573,15 +1581,19 @@ export default function CommunityBioForm() {
                           />
                           <label
                             htmlFor={photoInputId}
-                            className="min-h-[48px] inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm sm:text-base font-medium text-zinc-200 hover:border-[#FFCC00]/60 hover:bg-white/[0.06] hover:text-white transition-colors cursor-pointer"
+                            className="min-h-[46px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.03] px-4 sm:px-5 py-2.5 text-xs sm:text-base font-medium text-zinc-200 hover:border-[#FFCC00]/60 hover:bg-white/[0.06] hover:text-white transition-colors cursor-pointer"
                           >
-                            <Upload className="w-4 h-4 text-[#FFCC00]" />
-                            <span>{photoFile ? 'Replace portrait photo' : 'Choose portrait photo'}</span>
+                            <Upload className="w-4 h-4 shrink-0 text-[#FFCC00]" />
+                            <span className="truncate">
+                              {photoFile ? 'Replace photo' : 'Choose portrait'}
+                            </span>
                           </label>
 
                           {photoFile && (
-                            <div className="flex items-center gap-3 text-xs text-zinc-400">
-                              <span className="truncate max-w-[220px]">{photoFile.name}</span>
+                            <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-400">
+                              <span className="truncate max-w-[160px] sm:max-w-[220px]">
+                                {photoFile.name}
+                              </span>
                               <button
                                 type="button"
                                 onClick={() => handlePhotoChange(null)}
@@ -1604,7 +1616,7 @@ export default function CommunityBioForm() {
                         optionalText="Optional"
                       />
                       <label
-                        className={`min-h-[56px] flex items-start gap-3.5 rounded-lg border p-4 transition-all cursor-pointer select-none ${
+                        className={`min-h-[52px] flex items-start gap-2.5 sm:gap-3.5 rounded-lg border p-3.5 sm:p-4 transition-all cursor-pointer select-none ${
                           formData.featureConsent
                             ? 'border-[#FFCC00] bg-[#FFCC00]/[0.12] text-white'
                             : 'border-white/15 bg-white/[0.03] text-zinc-200 hover:border-white/35 hover:bg-white/[0.06]'
@@ -1618,19 +1630,20 @@ export default function CommunityBioForm() {
                         />
                         <span
                           aria-hidden="true"
-                          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded font-mono text-xs font-bold transition-colors ${
+                          className={`mt-0.5 flex h-[18px] w-[18px] sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded font-mono text-[11px] sm:text-xs font-bold transition-colors ${
                             formData.featureConsent
                               ? 'border border-[#FFCC00] bg-[#FFCC00] text-zinc-950'
                               : 'border border-white/25 bg-black/40 text-zinc-400'
                           }`}
                         >
-                          Y
+                          <span className="hidden sm:inline">Y</span>
+                          {formData.featureConsent && <Check className="sm:hidden h-3 w-3 stroke-[3]" />}
                         </span>
-                        <span className="text-sm sm:text-base leading-relaxed flex-1">
+                        <span className="text-xs sm:text-base leading-relaxed flex-1 min-w-0">
                           I grant Creative Minds' Forum permission to feature my profile and photo on the official website.
                         </span>
                         {formData.featureConsent && (
-                          <Check className="mt-1 h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />
+                          <Check className="hidden sm:block mt-1 h-4 w-4 shrink-0 text-[#FFCC00] stroke-[2.75]" />
                         )}
                       </label>
                     </div>
@@ -1647,7 +1660,7 @@ export default function CommunityBioForm() {
           </div>
 
           {/* Typeform Action Bar */}
-          <div className="border-t border-white/10 px-6 sm:px-10 py-5 bg-[#0D0D0D] flex items-center justify-between gap-4">
+          <div className="border-t border-white/10 px-4 sm:px-10 py-4 sm:py-5 bg-[#0D0D0D] flex items-center justify-between gap-3 sm:gap-4">
             <button
               type="button"
               onClick={() => {
@@ -1656,22 +1669,22 @@ export default function CommunityBioForm() {
                 scrollToFormTop();
               }}
               disabled={stepIndex === 0 || isSubmitting}
-              className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-transparent px-4 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-white/30 hover:text-white disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
+              className="min-h-[48px] flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-transparent px-4 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-white/30 hover:text-white disabled:opacity-35 disabled:cursor-not-allowed cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back</span>
             </button>
 
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3.5 flex-[2] sm:flex-initial">
               {stepIndex < FORM_STEPS.length - 1 ? (
                 <>
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-[#FFCC00] px-7 py-2.5 text-base font-bold text-zinc-950 transition-colors hover:bg-[#FFE066] cursor-pointer"
+                    className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#FFCC00] px-5 sm:px-7 py-2.5 text-sm sm:text-base font-bold text-zinc-950 transition-colors hover:bg-[#FFE066] cursor-pointer"
                   >
                     <span>{stepIndex === 2 ? 'Continue to Consent' : 'OK, Continue'}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 shrink-0" />
                   </button>
                   <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
                     <span>press Enter</span>
@@ -1682,7 +1695,7 @@ export default function CommunityBioForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-[#FFCC00] px-7 py-2.5 text-base font-bold text-zinc-950 transition-colors hover:bg-[#FFE066] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  className="min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#FFCC00] px-5 sm:px-7 py-2.5 text-sm sm:text-base font-bold text-zinc-950 transition-colors hover:bg-[#FFE066] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
