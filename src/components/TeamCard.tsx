@@ -73,10 +73,10 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
       {/* Ambient gold radial halo behind the card */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -inset-4 sm:-inset-8 rounded-[2.5rem] bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,204,0,0.16),transparent_70%)] blur-2xl transition-opacity duration-500 group-hover:opacity-100 opacity-80"
+        className="pointer-events-none absolute inset-0 sm:-inset-6 rounded-[2rem] sm:rounded-[2.5rem] bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,204,0,0.16),transparent_70%)] blur-2xl transition-opacity duration-500 group-hover:opacity-100 opacity-80"
       />
 
-      <div className="relative overflow-hidden rounded-3xl border border-[#FFCC00]/40 bg-gradient-to-br from-zinc-900/95 via-[#0B0B0B] to-zinc-950 p-5 sm:p-7 md:p-9 shadow-[0_24px_80px_-20px_rgba(255,204,0,0.25)] ring-1 ring-white/10 transition-all duration-500 hover:border-[#FFCC00]/70">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#FFCC00]/40 bg-gradient-to-br from-zinc-900/95 via-[#0B0B0B] to-zinc-950 p-4 sm:p-7 md:p-9 shadow-[0_24px_80px_-20px_rgba(255,204,0,0.25)] ring-1 ring-white/10 transition-all duration-500 hover:border-[#FFCC00]/70">
         {/* Top metallic gold hairline */}
         <div
           aria-hidden="true"
@@ -88,13 +88,13 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
           className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-[#FFCC00]/10 blur-3xl"
         />
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-8 lg:gap-10 items-center">
           {/* Portrait Column */}
-          <div className="md:col-span-5">
-            <div className="relative mx-auto max-w-[300px] sm:max-w-[340px] md:max-w-none aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-900 ring-2 ring-[#FFCC00]/60 shadow-[0_18px_50px_-15px_rgba(255,204,0,0.35)]">
+          <div className="md:col-span-5 min-w-0">
+            <div className="relative mx-auto max-w-[280px] sm:max-w-[340px] md:max-w-none aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-900 ring-2 ring-[#FFCC00]/60 shadow-[0_18px_50px_-15px_rgba(255,204,0,0.35)]">
               {imageFailed ? (
                 <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-800 to-zinc-950">
-                  <span className="font-display text-6xl font-black text-[#FFCC00]">{getInitials(member.name)}</span>
+                  <span className="font-display text-5xl sm:text-6xl font-black text-[#FFCC00]">{getInitials(member.name)}</span>
                 </div>
               ) : (
                 <img
@@ -109,21 +109,21 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
               {/* Floating badge on the photo */}
-              <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 rounded-full border border-[#FFCC00]/60 bg-black/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#FFCC00] backdrop-blur-md shadow-lg">
-                <Sparkles className="h-3 w-3 text-[#FFCC00]" />
+              <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 inline-flex items-center gap-1.5 rounded-full border border-[#FFCC00]/60 bg-black/80 px-2.5 sm:px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#FFCC00] backdrop-blur-md shadow-lg">
+                <Sparkles className="h-3 w-3 shrink-0 text-[#FFCC00]" />
                 <span>{member.office}</span>
               </div>
             </div>
           </div>
 
           {/* Editorial Details Column */}
-          <div className="md:col-span-7 flex flex-col text-left">
-            <div className="inline-flex self-start items-center gap-2 rounded-full border border-[#FFCC00]/40 bg-[#FFCC00]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[#FFCC00]">
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>Founder &amp; Visionary Lead</span>
+          <div className="md:col-span-7 min-w-0 flex flex-col text-left">
+            <div className="inline-flex self-start items-center gap-1.5 sm:gap-2 rounded-full border border-[#FFCC00]/40 bg-[#FFCC00]/10 px-2.5 sm:px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-[#FFCC00] max-w-full">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+              <span className="truncate">Founder &amp; Visionary Lead</span>
             </div>
 
-            <h2 className="mt-3.5 font-display text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
+            <h2 className="mt-3 sm:mt-3.5 font-display text-xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight break-words">
               {member.name}
             </h2>
 
@@ -135,12 +135,12 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
 
             {/* Audacity Statement Pull-Quote */}
             {hasQuote && (
-              <blockquote className="relative mt-5 rounded-2xl border border-white/10 border-l-4 border-l-[#FFCC00] bg-white/[0.03] p-4 sm:p-5">
+              <blockquote className="relative mt-4 sm:mt-5 rounded-xl sm:rounded-2xl border border-white/10 border-l-4 border-l-[#FFCC00] bg-white/[0.03] p-3.5 sm:p-5">
                 <Quote
                   aria-hidden="true"
-                  className="pointer-events-none absolute top-3 right-3 h-6 w-6 text-[#FFCC00]/20"
+                  className="pointer-events-none absolute top-3 right-3 h-5 w-5 sm:h-6 sm:w-6 text-[#FFCC00]/20"
                 />
-                <p className="text-xs sm:text-sm lg:text-[15px] italic leading-relaxed text-zinc-200">
+                <p className="text-xs sm:text-sm lg:text-[15px] italic leading-relaxed text-zinc-200 pr-5 sm:pr-6">
                   “{member.audacityStatement}”
                 </p>
               </blockquote>
@@ -148,7 +148,7 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
 
             {/* Core Creative Focus */}
             {member.focus.length > 0 && (
-              <div className="mt-5">
+              <div className="mt-4 sm:mt-5">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">
                   Core Creative Focus
                 </p>
@@ -156,7 +156,7 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
                   {member.focus.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-[#FFCC00]/35 bg-[#FFCC00]/[0.08] px-3 py-1.5 text-xs font-semibold leading-none text-zinc-100"
+                      className="rounded-full border border-[#FFCC00]/35 bg-[#FFCC00]/[0.08] px-3 py-1.5 text-xs font-semibold leading-snug text-zinc-100 break-words"
                     >
                       {item}
                     </li>
@@ -167,7 +167,7 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
 
             {/* Socials & Portfolio Action Row (Touch-friendly >= 44px) */}
             {socials.length > 0 && (
-              <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center gap-2.5">
+              <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-white/10 flex flex-wrap items-center gap-2.5">
                 {portfolioLink && (
                   <a
                     href={portfolioLink.href}
@@ -176,9 +176,9 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
                     aria-label={portfolioLink.label}
                     className="inline-flex h-11 items-center gap-2 rounded-xl bg-[#FFCC00] px-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-zinc-950 shadow-[0_10px_25px_-8px_rgba(255,204,0,0.6)] transition-all duration-200 hover:bg-[#FFE066] active:scale-[0.98]"
                   >
-                    <Globe className="h-4 w-4" />
+                    <Globe className="h-4 w-4 shrink-0" />
                     <span>Portfolio</span>
-                    <ArrowUpRight className="h-4 w-4" />
+                    <ArrowUpRight className="h-4 w-4 shrink-0" />
                   </a>
                 )}
 
@@ -189,7 +189,7 @@ export function FounderSpotlightCard({ member }: { member: TeamMember }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-[#141414] text-zinc-200 transition-colors duration-200 hover:border-[#FFCC00] hover:bg-[#FFCC00] hover:text-zinc-950 active:bg-[#FFCC00] active:text-zinc-950"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-[#141414] text-zinc-200 transition-colors duration-200 hover:border-[#FFCC00] hover:bg-[#FFCC00] hover:text-zinc-950 active:bg-[#FFCC00] active:text-zinc-950"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -208,7 +208,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
   const socials = buildSocials(member);
 
   return (
-    <article className="group flex flex-col min-w-0">
+    <article className="group w-full max-w-[380px] sm:max-w-none mx-auto flex flex-col min-w-0">
       {/* Photo */}
       <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10 transition-all duration-500 group-hover:ring-[#FFCC00]/60 group-hover:shadow-[0_18px_50px_-18px_rgba(255,204,0,0.35)]">
         {imageFailed ? (
@@ -248,21 +248,21 @@ export default function TeamCard({ member }: { member: TeamMember }) {
       </div>
 
       {/* Details */}
-      <div className="mt-4 flex flex-1 flex-col">
-        <h2 className="font-display text-base sm:text-lg font-bold leading-snug tracking-tight text-white">
+      <div className="mt-4 flex flex-1 flex-col min-w-0">
+        <h2 className="font-display text-base sm:text-lg font-bold leading-snug tracking-tight text-white break-words">
           {member.name}
         </h2>
         {member.nickname && (
           <p className="mt-0.5 text-xs sm:text-sm italic text-zinc-400">“{member.nickname}”</p>
         )}
-        <p className="mt-1 text-xs sm:text-sm font-semibold text-[#FFCC00]">{member.office}</p>
+        <p className="mt-1 text-xs sm:text-sm font-semibold text-[#FFCC00] break-words">{member.office}</p>
 
         {member.focus.length > 0 && (
           <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Core creative focus">
             {member.focus.map((item) => (
               <li
                 key={item}
-                className="rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[11px] sm:text-xs font-medium leading-none text-zinc-300"
+                className="rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[11px] sm:text-xs font-medium leading-snug text-zinc-300 break-words"
               >
                 {item}
               </li>
@@ -272,7 +272,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
 
         {/* Mobile social row (always visible, touch-friendly) */}
         {socials.length > 0 && (
-          <div className="mt-4 flex gap-2 md:hidden">
+          <div className="mt-4 flex flex-wrap gap-2 md:hidden">
             {socials.map(({ key, label, href, Icon }) => (
               <a
                 key={key}
@@ -280,7 +280,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-[#121212] text-zinc-300 transition-colors duration-200 active:bg-[#FFCC00] active:text-zinc-950 hover:bg-[#FFCC00] hover:text-zinc-950"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-[#121212] text-zinc-300 transition-colors duration-200 active:bg-[#FFCC00] active:text-zinc-950 hover:bg-[#FFCC00] hover:text-zinc-950"
               >
                 <Icon className="h-5 w-5" />
               </a>

@@ -12,7 +12,7 @@ export default function Team() {
     : teamMembers;
 
   return (
-    <main className="flex-1 w-full bg-[#050505] text-white min-h-screen relative overflow-hidden selection:bg-[#FFCC00] selection:text-zinc-950">
+    <main className="flex-1 w-full bg-[#050505] text-white min-h-screen relative overflow-x-clip selection:bg-[#FFCC00] selection:text-zinc-950">
       <Helmet>
         <title>Meet the Team | Creative Minds' Forum</title>
         <meta
@@ -27,19 +27,19 @@ export default function Team() {
       </Helmet>
 
       {/* Hero band */}
-      <section className="relative pt-32 sm:pt-40 pb-14 sm:pb-20 px-4 sm:px-8 text-center border-b border-white/10">
+      <section className="relative pt-24 sm:pt-36 md:pt-40 pb-10 sm:pb-16 md:pb-20 px-4 sm:px-8 text-center border-b border-white/10">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,204,0,0.16),transparent_60%)]"
         />
         <div className="relative z-10 mx-auto max-w-3xl">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white">
             Meet the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00]">
               Team
             </span>
           </h1>
-          <nav aria-label="Breadcrumb" className="mt-5 text-[11px] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
+          <nav aria-label="Breadcrumb" className="mt-4 sm:mt-5 text-[11px] sm:text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
             <Link to="/" className="hover:text-[#FFCC00] transition-colors">
               Home
             </Link>
@@ -48,7 +48,7 @@ export default function Team() {
               Meet the Team
             </span>
           </nav>
-          <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base text-zinc-400 max-w-xl mx-auto">
             The architects, the creatives and the visionaries behind every programme we run.
           </p>
         </div>
@@ -58,31 +58,31 @@ export default function Team() {
       {founder && (
         <section
           aria-label="Founder Spotlight"
-          className="relative px-4 sm:px-8 lg:px-12 pt-12 sm:pt-16 pb-6 sm:pb-10"
+          className="relative px-3.5 sm:px-8 lg:px-12 pt-8 sm:pt-16 pb-4 sm:pb-10"
         >
           <FounderSpotlightCard member={founder} />
         </section>
       )}
 
       {/* Core Team Grid */}
-      <section className="relative px-4 sm:px-8 lg:px-12 py-12 sm:py-16">
+      <section className="relative px-3.5 sm:px-8 lg:px-12 py-10 sm:py-16">
         {/* Faint column guides, echoing the reference layout */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden lg:block bg-[linear-gradient(to_right,transparent_calc(25%-1px),rgba(255,255,255,0.05)_25%,transparent_calc(25%+1px),transparent_calc(50%-1px),rgba(255,255,255,0.05)_50%,transparent_calc(50%+1px),transparent_calc(75%-1px),rgba(255,255,255,0.05)_75%,transparent_calc(75%+1px))]"
+          className="pointer-events-none absolute inset-0 hidden xl:block bg-[linear-gradient(to_right,transparent_calc(25%-1px),rgba(255,255,255,0.05)_25%,transparent_calc(25%+1px),transparent_calc(50%-1px),rgba(255,255,255,0.05)_50%,transparent_calc(50%+1px),transparent_calc(75%-1px),rgba(255,255,255,0.05)_75%,transparent_calc(75%+1px))]"
         />
 
         {founder && (
-          <div className="relative mx-auto max-w-7xl mb-10 sm:mb-14 flex items-center gap-4">
+          <div className="relative mx-auto max-w-7xl mb-8 sm:mb-14 flex items-center gap-2.5 sm:gap-4">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-white/15" />
-            <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] text-[#FFCC00]/90">
+            <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.15em] sm:tracking-[0.25em] text-[#FFCC00]/90 text-center">
               Core Leadership &amp; Team
             </span>
             <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/15 to-white/15" />
           </div>
         )}
 
-        <div className="relative mx-auto max-w-7xl grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-10 sm:gap-y-14">
+        <div className="relative mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 sm:gap-x-6 lg:gap-x-8 gap-y-10 sm:gap-y-14">
           {coreTeam.map((member) => (
             <TeamCard key={member.slug} member={member} />
           ))}
