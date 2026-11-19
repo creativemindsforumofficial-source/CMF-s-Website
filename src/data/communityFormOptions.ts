@@ -139,6 +139,7 @@ export const FORM_STEPS: readonly FormStepMeta[] = [
 
 export const WHATSAPP_INVITE_URL = 'https://chat.whatsapp.com/CmPHtO4hTzWKtNAaXAN0MR';
 export const TELEGRAM_INVITE_URL = 'https://t.me/+ZA038t1mQiE2ZDY0';
+export const BIODATA_COMPLETED_STORAGE_KEY = 'cmf_biodata_completed';
 
 export const GENDER_OPTIONS = ['Male', 'Female', 'Prefer not to say'] as const;
 

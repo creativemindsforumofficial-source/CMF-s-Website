@@ -57,7 +57,7 @@ export default function CommunityOnboarding() {
                 className="min-h-[44px] inline-flex items-center gap-2 self-start sm:self-end rounded-lg border border-white/15 bg-[#0D0D0D] px-4 py-2 text-xs sm:text-sm font-medium text-zinc-300 transition-colors hover:border-[#FFCC00]/50 hover:text-white shrink-0"
               >
                 <ArrowLeft className="w-4 h-4 text-[#FFCC00]" />
-                <span>Back to Community Links</span>
+                <span>Back to Community Overview</span>
               </Link>
             </div>
           </div>

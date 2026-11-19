@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -7,11 +8,16 @@ import {
   ClipboardList,
   Compass,
   HeartHandshake,
+  Lock,
   ShieldCheck,
   Zap,
 } from 'lucide-react';
 import { TelegramIcon, WhatsAppIcon } from '../components/SocialIcons';
-import { TELEGRAM_INVITE_URL, WHATSAPP_INVITE_URL } from '../data/communityFormOptions';
+import {
+  BIODATA_COMPLETED_STORAGE_KEY,
+  TELEGRAM_INVITE_URL,
+  WHATSAPP_INVITE_URL,
+} from '../data/communityFormOptions';
 
 const COMMUNITY_CHANNELS = [
   {
@@ -52,6 +58,27 @@ const COMMUNITY_PILLARS = [
 ];
 
 export default function Join() {
+  const [isUnlocked, setIsUnlocked] = useState<boolean>(() => {
+    try {
+      return typeof window !== 'undefined' && localStorage.getItem(BIODATA_COMPLETED_STORAGE_KEY) === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    const syncUnlockState = () => {
+      try {
+        setIsUnlocked(localStorage.getItem(BIODATA_COMPLETED_STORAGE_KEY) === 'true');
+      } catch {
+        setIsUnlocked(false);
+      }
+    };
+    syncUnlockState();
+    window.addEventListener('storage', syncUnlockState);
+    return () => window.removeEventListener('storage', syncUnlockState);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -113,44 +140,66 @@ export default function Join() {
             Step inside the official Creative Minds' Forum community. Connect with writers, filmmakers, spoken word artists, and tech creators building generational work in an atmosphere of mutual elevation.
           </motion.p>
 
-          {/* Paired WhatsApp & Telegram Buttons */}
+          {/* Gated Community CTA: Bio-Data First, Invite Links Unlocked After Submission */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.24 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md sm:max-w-none sm:w-auto"
+            className="mt-10 w-full flex flex-col items-center gap-4"
           >
-            {COMMUNITY_CHANNELS.map(({ id, label, ariaLabel, href, Icon }) => (
-              <a
-                key={id}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={ariaLabel}
-                className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[240px] min-h-[52px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.35)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.55)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
-              >
-                <Icon className="w-5 h-5 shrink-0 text-zinc-950" />
-                <span>{label}</span>
-                <ArrowRight className="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1" />
-              </a>
-            ))}
-          </motion.div>
+            {isUnlocked ? (
+              <>
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#FFCC00]/35 bg-[#FFCC00]/10 px-4 py-1.5 text-xs font-semibold text-[#FFE066]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FFCC00]" />
+                  <span>Bio-Data Completed • Invite Links Unlocked</span>
+                </div>
 
-          {/* Dedicated Bio-Data Onboarding Page CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.5 }}
-            className="mt-4 w-full max-w-md sm:max-w-none flex justify-center"
-          >
-            <Link
-              to="/join/bio-data"
-              className="group min-h-[48px] w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-[#0D0D0D] px-7 py-3 text-sm sm:text-base font-semibold text-zinc-200 transition-colors hover:border-[#FFCC00]/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFCC00]"
-            >
-              <ClipboardList className="w-4 h-4 text-[#FFCC00] shrink-0" />
-              <span>Complete Member Bio-Data</span>
-              <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
-            </Link>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md sm:max-w-none sm:w-auto">
+                  {COMMUNITY_CHANNELS.map(({ id, label, ariaLabel, href, Icon }) => (
+                    <a
+                      key={id}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={ariaLabel}
+                      className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[240px] min-h-[52px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.35)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.55)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
+                    >
+                      <Icon className="w-5 h-5 shrink-0 text-zinc-950" />
+                      <span>{label}</span>
+                      <ArrowRight className="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  ))}
+                </div>
+
+                <Link
+                  to="/join/bio-data"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium text-zinc-400 underline underline-offset-4 hover:text-white transition-colors"
+                >
+                  <ClipboardList className="w-3.5 h-3.5 text-[#FFCC00]" />
+                  <span>View or submit another bio-data entry</span>
+                </Link>
+              </>
+            ) : (
+              <>
+                <div className="w-full max-w-md sm:max-w-none flex justify-center">
+                  <Link
+                    to="/join/bio-data"
+                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[290px] min-h-[54px] px-8 py-4 rounded-full bg-gradient-to-r from-[#FFE066] via-[#FFCC00] to-[#E69D00] hover:brightness-110 text-zinc-950 font-bold text-base sm:text-lg tracking-tight transition-all duration-300 shadow-[0_10px_30px_rgba(255,204,0,0.35)] hover:shadow-[0_14px_40px_rgba(255,204,0,0.55)] hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFE066] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] cursor-pointer"
+                  >
+                    <ClipboardList className="w-5 h-5 shrink-0 text-zinc-950" />
+                    <span>Complete Bio-Data to Join</span>
+                    <ArrowRight className="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+
+                <p className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm text-zinc-400 max-w-md text-balance">
+                  <Lock className="w-3.5 h-3.5 text-[#FFCC00] shrink-0" />
+                  <span>
+                    Official WhatsApp &amp; Telegram invite links unlock immediately after completing your 2-minute bio-data.
+                  </span>
+                </p>
+              </>
+            )}
           </motion.div>
 
           {/* Reassurance Points */}

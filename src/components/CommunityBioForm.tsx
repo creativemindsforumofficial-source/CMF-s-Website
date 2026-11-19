@@ -17,6 +17,7 @@ import {
 import { supabase } from '../lib/supabase';
 import { TelegramIcon, WhatsAppIcon } from './SocialIcons';
 import {
+  BIODATA_COMPLETED_STORAGE_KEY,
   CONTRIBUTION_OPTIONS,
   CORE_FOCUS_OPTIONS,
   COUNTRIES,
@@ -609,6 +610,12 @@ export default function CommunityBioForm() {
 
       if (error) {
         throw new Error(error.message);
+      }
+
+      try {
+        localStorage.setItem(BIODATA_COMPLETED_STORAGE_KEY, 'true');
+      } catch {
+        // Ignore storage write errors in restricted browsing modes
       }
 
       setSubmitSuccess(true);
